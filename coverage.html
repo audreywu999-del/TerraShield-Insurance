@@ -1,220 +1,203 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coverage – TerraShield Insurance</title>
+  <style>
+    :root {
+      --dark-gold: #d87c24;
+      --text-dark: #222;
+      --text-light: #666;
+      --bg-light: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(to right, #d98f33, #e2a23e);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== COVERAGE SECTION ===== */
+    .coverage-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      background: white;
+    }
+
+    .coverage-image {
+      flex: 1 1 360px;
+    }
+
+    .coverage-image img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .coverage-content {
+      flex: 2 1 400px;
+    }
+
+    .coverage-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .coverage-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark-gold);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .coverage-content p {
+      margin: 0 0 1rem 0;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
+    .coverage-content strong {
+      font-weight: 600;
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 0.5rem;
+      }
+
+      .coverage-section {
+        padding: 2rem 1rem;
+      }
+
+      .coverage-content h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #fafafa;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Coverage – TerraShield Insurance&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>:root {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--dark-gold: #d87c24;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--text-dark: #222;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--text-light: #666;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--bg-light: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: "Poppins", Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: var(--bg-light);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--text-dark);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>line-height: 1.6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* ===== NAVBAR ===== */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: space-between;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 1rem 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: linear-gradient(to right, #d98f33, #e2a23e);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.logo {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>nav a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-left: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>nav a:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: underline;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* ===== COVERAGE SECTION ===== */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-section {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: flex-start;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 3rem 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-image {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex: 1 1 360px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-image img {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>object-fit: cover;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-content {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex: 2 1 400px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-content h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #000;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 0.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>letter-spacing: 0.5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-content h3 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--dark-gold);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 0.75rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-content p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 0 1rem 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--text-dark);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.coverage-content strong {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ul {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding-left: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@media (max-width: 768px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>align-items: flex-start;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>nav {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>margin-top: 0.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.coverage-section {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>padding: 2rem 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.coverage-content h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 1.6rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #fafafa;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.85rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--text-light);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- ===== NAVBAR ===== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;a class="logo" href="index.html"&gt;TerraShield Insurance&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="index.html"&gt;Home&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="calculator.html"&gt;Calculator&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="about.html"&gt;About Us&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="contact.html"&gt;Contact&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- ===== COVERAGE SECTION ===== --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section class="coverage-section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="coverage-image"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;img src="your-crops-image.jpg" alt="Crops" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="coverage-content"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;COVERAGE&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h3&gt;01 COVERED CROPS&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Abaca, adlai/Job’s tears, ampalaya, anahaw, anthurium, asparagus, avocado,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Baguio beans/green beans, bamboo, banana, black pepper, breadfruit, broccoli,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>buri, cabbage, &lt;strong&gt;cacao&lt;/strong&gt;, cacao nursery seedlings, calamansi tree,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>carrot, cashew tree, cassava, castor bean, cauliflower, chrysanthemum, celery,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>chayote, chico, chinese melon, citronella, &lt;strong&gt;coconut&lt;/strong&gt;, coffee,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>cotton, cucumber, dragon fruit, durian, eggplant, falcata, garlic, gerbera,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ginger, gladioli, gmelina, &lt;strong&gt;guava&lt;/strong&gt;, guyabano, honeydew, hot chili</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/ hot pepper, jackfruit, jathropa, kangkong/water spinach, lanzones,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lauan/shorea, lemon tree, lettuce, mahogany, mango fruit, mangosteen,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;strong&gt;mango tree&lt;/strong&gt;, marang, melon, mungbeans, mushroom, mustasa, napier grass,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>nipa palm, &lt;strong&gt;oil palm&lt;/strong&gt;, okra, onion (red, white &amp; yellow),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>orange tree, &lt;strong&gt;paddy&lt;/strong&gt;, pakchoi, papaya, patani, patola, peanut,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>pechay (native &amp; Chinese), pili tree, &lt;strong&gt;pineapple&lt;/strong&gt;, pomelo,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>potato, purple yam or ube, radish, rambutan, rose, &lt;strong&gt;rubber tree&lt;/strong&gt;,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>saluyot/red jute, santol, sesame/linga, shallot, sorghum, soybeans, squash,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>star apple, string beans, sugarcane, sunflower, sweet peas, sweet potato,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>sweet/hot/bell pepper, sweet corn, taro, tiger grass, tobacco, tomato,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>turmeric, upo/bottle gourd, watermelon, winged bean, white potato, yacon,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>yam bean/turnips, and zucchini.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h3&gt;02 COVERED RISK&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Any, all, or a combination of typhoon, flood, drought, earthquake, volcanic</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>eruption, localized strong winds, tornado, frost, hails/hailstorm, plant</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>diseases, pest infestations, and accidental fire — provided that the risks</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>covered shall be limited to those specified in the policy contract. Other</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>perils may be covered subject to approval of the PCIC Board of Directors (BOD).</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;strong&gt;Excluded Perils:&lt;/strong&gt;&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;War, riot, or political unrest&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Long-term ecological degradation (soil erosion, land abandonment)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>Deliberate damage or negligence by the farmer (e.g., arson)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>© 2025 TerraShield Insurance. All rights reserved.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <a class="logo" href="index.html">TerraShield Insurance</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== COVERAGE SECTION ===== -->
+  <section class="coverage-section">
+    <div class="coverage-image">
+      <img src="your-crops-image.jpg" alt="Crops" />
+    </div>
+    <div class="coverage-content">
+      <h2>COVERAGE</h2>
+      <h3>01 COVERED CROPS</h3>
+      <p>
+        Abaca, adlai/Job’s tears, ampalaya, anahaw, anthurium, asparagus, avocado,
+        Baguio beans/green beans, bamboo, banana, black pepper, breadfruit, broccoli,
+        buri, cabbage, <strong>cacao</strong>, cacao nursery seedlings, calamansi tree,
+        carrot, cashew tree, cassava, castor bean, cauliflower, chrysanthemum, celery,
+        chayote, chico, chinese melon, citronella, <strong>coconut</strong>, coffee,
+        cotton, cucumber, dragon fruit, durian, eggplant, falcata, garlic, gerbera,
+        ginger, gladioli, gmelina, <strong>guava</strong>, guyabano, honeydew, hot chili
+        / hot pepper, jackfruit, jathropa, kangkong/water spinach, lanzones,
+        lauan/shorea, lemon tree, lettuce, mahogany, mango fruit, mangosteen,
+        <strong>mango tree</strong>, marang, melon, mungbeans, mushroom, mustasa, napier grass,
+        nipa palm, <strong>oil palm</strong>, okra, onion (red, white & yellow),
+        orange tree, <strong>paddy</strong>, pakchoi, papaya, patani, patola, peanut,
+        pechay (native & Chinese), pili tree, <strong>pineapple</strong>, pomelo,
+        potato, purple yam or ube, radish, rambutan, rose, <strong>rubber tree</strong>,
+        saluyot/red jute, santol, sesame/linga, shallot, sorghum, soybeans, squash,
+        star apple, string beans, sugarcane, sunflower, sweet peas, sweet potato,
+        sweet/hot/bell pepper, sweet corn, taro, tiger grass, tobacco, tomato,
+        turmeric, upo/bottle gourd, watermelon, winged bean, white potato, yacon,
+        yam bean/turnips, and zucchini.
+      </p>
+
+      <h3>02 COVERED RISK</h3>
+      <p>
+        Any, all, or a combination of typhoon, flood, drought, earthquake, volcanic
+        eruption, localized strong winds, tornado, frost, hails/hailstorm, plant
+        diseases, pest infestations, and accidental fire — provided that the risks
+        covered shall be limited to those specified in the policy contract. Other
+        perils may be covered subject to approval of the PCIC Board of Directors (BOD).
+      </p>
+
+      <p><strong>Excluded Perils:</strong></p>
+      <ul>
+        <li>War, riot, or political unrest</li>
+        <li>
+          Long-term ecological degradation (soil erosion, land abandonment)
+        </li>
+        <li>
+          Deliberate damage or negligence by the farmer (e.g., arson)
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 TerraShield Insurance. All rights reserved.
+  </footer>
 </body>
 </html>
