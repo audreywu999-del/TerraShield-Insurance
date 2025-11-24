@@ -7,85 +7,145 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #047857;
-    --light-green: #d1fae5;
-    --text-dark: #1e293b;
-    --bg: #f8fafc;
+    --gold: #E3A008;
+    --dark-gold: #D97706;
+    --light-cream: #FFF8E5;
+    --text-dark: #2C2A29;
+    --bg: #FFFCF7;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+
+  * {
+    box-sizing: border-box; margin: 0; padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
   body { background: var(--bg); color: var(--text-dark); }
 
+  /* HEADER */
   header {
-    background: linear-gradient(90deg, #065f46, #047857);
+    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
     color: white; padding: 1rem 1.5rem;
     display: flex; justify-content: space-between; align-items: center;
     position: sticky; top: 0; z-index: 10;
   }
-  header h1 { font-size: 1.4rem; }
+
+  .logo-box {
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .logo {
+    height: 48px;
+    width: auto;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+    color: white;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+
   nav a {
     color: white; text-decoration: none;
     margin-left: 1.2rem; font-weight: 500;
+    transition: opacity 0.2s ease;
   }
-  nav a:hover { text-decoration: underline; }
+  nav a:hover { opacity: 0.8; }
 
+  /* HERO */
   .hero {
-    background: linear-gradient(to right, #ecfccb, #dcfce7);
-    text-align: center; padding: 4rem 1rem;
+    background: linear-gradient(to right, #FFF7E0, #FFF8E5);
+    text-align: center; padding: 4rem 1rem 3rem;
   }
-  .hero h2 { font-size: 2rem; margin-bottom: 1rem; color: #065f46; }
-  .hero p { font-size: 1.05rem; color: #374151; }
+  .hero h2 { font-size: 2.2rem; margin-bottom: 1rem; color: var(--dark-gold); }
+  .hero p { font-size: 1.05rem; color: #5C5143; }
 
+  /* MAIN SECTIONS */
   .container {
-    max-width: 900px; margin: 3rem auto;
-    background: white; border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 3rem auto;
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
   }
 
   h3 {
-    text-align: center; color: var(--green);
-    margin-bottom: 1rem; font-size: 1.4rem;
+    text-align: center;
+    color: var(--dark-gold);
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .grid {
-    display: grid; gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
-  label { display: block; font-size: .9rem; margin-bottom: .3rem; }
+
+  label { display: block; font-size: .9rem; margin-bottom: .3rem; color: #4B453E; }
   select, input {
-    width: 100%; padding: .7rem; border-radius: 6px;
-    border: 1px solid #cbd5e1; font-size: 1rem;
+    width: 100%; padding: .8rem; border-radius: 6px;
+    border: 1px solid #E5E2DD; font-size: 1rem;
   }
+
   button {
-    background: var(--green); color: white; border: none;
-    margin: 2rem auto 1rem; display: block;
-    padding: .9rem 2.2rem; font-size: 1.05rem;
-    border-radius: 8px; cursor: pointer;
+    background: var(--dark-gold);
+    color: white;
+    border: none;
+    margin: 2rem auto 1rem;
+    display: block;
+    padding: .9rem 2.2rem;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    cursor: pointer;
     transition: all .2s ease;
   }
-  button:hover { background: #064e3b; transform: translateY(-2px); }
+
+  button:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+  }
+
   #resultBox {
-    background: var(--light-green);
-    text-align: center; padding: 1rem; border-radius: 8px;
-    color: #065f46; font-weight: 500; display: none;
+    background: var(--light-cream);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--dark-gold);
+    font-weight: 500;
+    display: none;
   }
 
+  /* FOOTER */
   footer {
-    text-align: center; background: #065f46; color: white;
-    padding: 1.5rem; margin-top: 4rem; font-size: .9rem;
+    text-align: center;
+    background: var(--dark-gold);
+    color: white;
+    padding: 1.5rem;
+    margin-top: 4rem;
+    font-size: .9rem;
   }
 
-  /* Responsive */
+  a { color: var(--dark-gold); }
+  a:hover { text-decoration: underline; }
+
+  /* RESPONSIVE */
   @media (max-width:600px) {
     header { flex-direction: column; align-items: flex-start; }
     nav { margin-top: .5rem; }
+    .hero h2 { font-size: 1.7rem; }
+    .container { padding: 1.5rem; margin: 2rem 1rem; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🌾 TerraShield Insurance</h1>
+  <div class="logo-box">
+    <img src="logo.png" alt="TerraShield Insurance Logo" class="logo">
+    <h1>TerraShield Insurance</h1>
+  </div>
   <nav>
     <a href="#calculator">Calculator</a>
     <a href="#about">About</a>
@@ -144,8 +204,8 @@
 
 <section id="about" class="container">
   <h3>About TerraShield</h3>
-  <p>TerraShield is dedicated to empowering Malaysian farmers through reliable, data‑driven risk management tools. 
-  Our goal is to make crop insurance transparent, accessible, and affordable for every grower.</p>
+  <p>TerraShield empowers Malaysian farmers with reliable, data‑driven insurance tools. 
+  We make crop protection transparent, accessible, and affordable for sustainable growth.</p>
 </section>
 
 <section id="contact" class="container">
@@ -165,6 +225,7 @@ const stateCrops = {
   "Perak":["Coconut"],"Perlis":["Pineapple"],"Pulau Pinang":["Mango"],
   "Sabah":["Oil Palm"],"Sarawak":["Cocoa","Oil Palm"],"Selangor":["Paddy (Rice)"]
 };
+
 function updateCrops(){
   const s=document.getElementById("state").value;
   const c=document.getElementById("crop");
