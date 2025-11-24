@@ -1,4 +1,4 @@
-<!-- ===== STANDARD HEADER ===== -->
+<!-- ===== STANDARDIZED HEADER (header.html) ===== -->
 <header>
   <div class="logo-box">
     <img src="logo.png" class="logo" alt="TerraShield logo" />
