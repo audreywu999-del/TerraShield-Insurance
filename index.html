@@ -28,6 +28,7 @@
     color: var(--text-dark);
   }
 
+  /* ===== HEADER NAV ===== */
   header {
     background: linear-gradient(90deg, var(--gold), var(--dark-gold));
     color: white;
@@ -53,6 +54,7 @@
   }
   nav a:hover { opacity: .9; }
 
+  /* ===== HERO SECTION ===== */
   .hero {
     background: linear-gradient(to right, #FFF7E0, #FFF8E5);
     text-align: center;
@@ -78,6 +80,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* ===== CONTAINER BLOCK ===== */
   .container {
     max-width: 900px;
     background: white;
@@ -86,6 +89,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 18px rgba(0,0,0,.08);
   }
+
   h3 {
     text-align: center;
     color: var(--dark-gold);
@@ -129,6 +133,43 @@
     font-weight: 500;
   }
 
+  /* Disclaimer Italic Orange Bar */
+  .disclaimer-bar {
+    color: var(--dark-gold);
+    font-family: "Georgia", "Times New Roman", serif;
+    font-style: italic;
+    font-size: 0.70rem;
+    line-height: 1.3;
+    margin-top: 1.5rem;
+  }
+
+  .disclaimer-bar p {
+    margin: 0;
+    line-height: inherit;
+  }
+
+  /* ===== COVERAGE PREVIEW ===== */
+  .coverage-preview {
+    text-align: center;
+    background: #fff9ee;
+  }
+  .coverage-preview p {
+    max-width: 650px;
+    margin: 0 auto 1.4rem;
+  }
+  .coverage-btn {
+    display: inline-block;
+    background: var(--dark-gold);
+    color: white;
+    padding: .7rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background .3s ease;
+  }
+  .coverage-btn:hover { background: var(--gold); }
+
+  /* ===== FOOTER ===== */
   footer {
     text-align: center;
     background: var(--dark-gold);
@@ -138,24 +179,6 @@
     font-size: .9rem;
   }
 
-/* === Orange italic disclaimer === */
-.disclaimer-bar {
-  color: var(--dark-gold);
-  font-family: "Georgia", "Times New Roman", serif;
-  font-style: italic;
-  font-size: 0.70rem;
-  line-height: 1.3;   /* ✅ 改成 1.3，行距更紧凑 */
-  margin-top: 1.5rem;
-  background: none;
-  border: none;
-  border-radius: 0;
-}
-
-.disclaimer-bar p {
-  margin: 0;
-  line-height: inherit;   /* ✅ 确保 p 继承父级行高 */
-}
-  
   @media(max-width:600px){
     header{flex-direction:column;align-items:flex-start;}
     .container{padding:1.5rem;}
@@ -165,6 +188,7 @@
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
   <div class="logo-box">
     <img src="logo.png" class="logo" alt="logo" />
@@ -172,17 +196,20 @@
   </div>
   <nav>
     <a href="./index.html" class="active">Calculator</a>
+    <a href="./coverage.html">Coverage</a>
     <a href="./about.html">About</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
+<!-- ===== HERO ===== -->
 <section class="hero">
   <h2>Protecting Farmers, Securing Harvests</h2>
   <h3 class="slogan">“Lebih Pasti, Lebih Tenang”</h3>
   <p>Estimate your agricultural insurance premium instantly for your Malaysian crops.</p>
 </section>
 
+<!-- ===== CALCULATOR ===== -->
 <section id="calculator" class="container">
   <h3>Premium Calculator</h3>
   <div class="grid">
@@ -253,23 +280,45 @@
   <div class="disclaimer-bar">
     <p>
       The above premiums are calculated at the standard premium rate and are for reference only. 
-      The actual premiums paid must include the premium levy collected by the Insurance Authority. 
+      The actual premiums paid must include the premium levy collected by the Insurance Authority.
+    </p>
+  </div>
 </section>
 
+<!-- ===== ABOUT OVERVIEW ===== -->
 <section id="overview" class="container">
   <h3>About TerraShield</h3>
-  <p>TerraShield empowers Malaysian farmers with reliable, data-driven insurance tools to make crop protection transparent and affordable for sustainable growth.</p>
+  <p>
+    TerraShield empowers Malaysian farmers with reliable, data-driven insurance tools to make crop protection transparent
+    and affordable for sustainable growth.
+  </p>
 </section>
 
+<!-- ===== COVERAGE PREVIEW ===== -->
+<section id="coverage-preview" class="container coverage-preview">
+  <h3>Crop & Risk Coverage Overview</h3>
+  <p>
+    Learn which crops and risks are included in our Malaysian Agricultural Insurance Program —
+    from rice, durian, and oil palm to protection from floods, droughts, and typhoons.
+  </p>
+  <a class="coverage-btn" href="./coverage.html">View Full Coverage →</a>
+</section>
+
+<!-- ===== CONTACT ===== -->
 <section id="contact" class="container">
   <h3>Contact Us</h3>
-  <p>Email: <a href="mailto:info@terrashield.my">info@terrashield.my</a><br/>Kuala Lumpur, Malaysia</p>
+  <p>
+    Email: <a href="mailto:info@terrashield.my">info@terrashield.my</a><br/>
+    Kuala Lumpur, Malaysia
+  </p>
 </section>
 
-<footer>© 2025 TerraShield Agriculture Insurance | All Rights Reserved</footer>
+<footer>
+  © 2025 TerraShield Agriculture Insurance | All Rights Reserved
+</footer>
 
+<!-- ===== SCRIPT ===== -->
 <script>
-// === Coverage Min & Max Table (from official listing) ===
 const coverageLimits = {
   "Oil Palm": {
     "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
@@ -321,7 +370,6 @@ const coverageLimits = {
   }
 };
 
-// === Update coverage dropdown with 5% steps ===
 function updateCoverageOptions() {
   const state = document.getElementById("state").value;
   const crop = document.getElementById("crop").value;
@@ -332,7 +380,7 @@ function updateCoverageOptions() {
     const [min, max] = coverageLimits[crop][state];
     for (let level = min; level <= max; level += 5) {
       const opt = document.createElement("option");
-      opt.value = level/100;
+      opt.value = level / 100;
       opt.textContent = level + "%";
       coverageSelect.appendChild(opt);
     }
@@ -343,14 +391,12 @@ function updateCoverageOptions() {
   }
 }
 
-// === Premium calculation ===
 function calculatePremium() {
   const crop = document.getElementById("crop").value;
   const state = document.getElementById("state").value;
   const yieldVal = parseFloat(document.getElementById("yield").value);
   const area = parseFloat(document.getElementById("area").value);
   const coverage = parseFloat(document.getElementById("coverage").value);
-
   if (!crop || !state || !yieldVal || !area || !coverage) {
     alert("Please fill all fields including crop and state.");
     return;
@@ -363,19 +409,19 @@ function calculatePremium() {
 
   const price = priceByCrop[crop] || 1500;
   const volatility = 0.15;
-  const pureRate = Math.max(0.01, volatility * (1-coverage) * 3.0);
+  const pureRate = Math.max(0.01, volatility * (1 - coverage) * 3.0);
   const expenses = 0.12, profit = 0.15;
   const grossRate = pureRate / (1 - expenses - profit);
   const liability = yieldVal * price * area * coverage;
   const premium = liability * grossRate;
 
   const result = document.getElementById("resultBox");
-  result.style.display="block";
+  result.style.display = "block";
   result.innerHTML = `
     <strong>${crop}</strong> (${state})<br>
-    Coverage: ${(coverage*100).toFixed(0)}%<br>
+    Coverage: ${(coverage * 100).toFixed(0)}%<br>
     Expected Liability: RM ${liability.toLocaleString()}<br>
-    Gross Premium Rate: ${(grossRate*100).toFixed(2)}%<br>
+    Gross Premium Rate: ${(grossRate * 100).toFixed(2)}%<br>
     💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>
   `;
 }
