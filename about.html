@@ -3,71 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About TerraShield — Agriculture Insurance Malaysia</title>
+<title>About TerraShield Insurance</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root { --gold:#E3A008; --dark-gold:#D97706; --bg:#FFFCF7; --text:#2C2A29; }
-  *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif;}
+  :root{
+    --gold:#E3A008;--dark-gold:#D97706;--bg:#FFFCF7;--text:#2C2A29;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
   body{background:var(--bg);color:var(--text);}
-  header{background:linear-gradient(90deg,var(--gold),var(--dark-gold));color:white;
-         display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;}
+
+  header{
+    background:linear-gradient(90deg,var(--gold),var(--dark-gold));
+    color:white;padding:1rem 1.5rem;
+    display:flex;justify-content:space-between;align-items:center;
+  }
   .logo-box{display:flex;align-items:center;gap:10px;}
   .logo{height:48px;}
   nav a{color:white;text-decoration:none;margin-left:1rem;font-weight:500;}
-  nav a:hover{opacity:0.9;}
-  main{max-width:900px;background:white;margin:3rem auto;padding:2rem;
-       box-shadow:0 4px 15px rgba(0,0,0,.08);border-radius:12px;}
+  nav a:hover{text-decoration:underline;}
+
+  main{max-width:900px;margin:3rem auto;background:white;
+       border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.08);padding:2rem;}
   h1,h2{color:var(--dark-gold);}
   h1{text-align:center;margin-bottom:1rem;}
   section{margin-top:2rem;}
-  footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;margin-top:4rem;}
+  footer{text-align:center;background:var(--dark-gold);
+         color:white;padding:1.2rem;margin-top:4rem;}
   @media(max-width:600px){header{flex-direction:column;align-items:flex-start;}}
+
+  a.button{display:inline-block;margin-top:1rem;background:var(--dark-gold);
+           color:white;padding:0.6rem 1.2rem;border-radius:8px;text-decoration:none;}
+  a.button:hover{background:var(--gold);}
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo-box">
-    <img src="logo.png" class="logo" alt="TerraShield logo">
+    <img src="logo.png" alt="TerraShield Logo" class="logo">
     <h1>TerraShield Insurance</h1>
   </div>
   <nav>
-    <a href="about.html">Home</a>
     <a href="index.html">Calculator</a>
-    <a href="contact.html">Contact</a>
+    <a href="about.html" class="active">About</a>
   </nav>
 </header>
 
 <main>
   <h1>About TerraShield</h1>
-  <p>Founded to empower Malaysia’s agricultural community, <strong>TerraShield Agriculture Insurance</strong> delivers data‑driven, transparent protection for farmers and cooperatives. 
-  We believe in security through knowledge — by combining risk modelling with local farming insight, our aim is to safeguard harvests and stabilize incomes.</p>
+  <p>
+    <strong>TerraShield Agriculture Insurance</strong> was founded to strengthen Malaysia’s farming community
+    through modern, data‑driven crop protection. We focus on risk transparency and affordable coverage
+    to help farmers achieve long‑term stability and success.
+  </p>
 
   <section>
     <h2>🌾 Our Mission</h2>
-    <p>To provide affordable, understandable, and sustainable crop insurance solutions that strengthen rural economies and ensure food security.</p>
+    <p>
+      To safeguard Malaysia’s agriculture by providing smart, fair, and sustainable insurance solutions
+      that empower farmers and cooperatives to plan confidently.
+    </p>
   </section>
 
   <section>
-    <h2>💡 Our Values</h2>
-    <ul style="margin-left:1.5rem;">
-      <li><strong>Transparency —</strong> Clear coverage terms and premium structures.</li>
-      <li><strong>Innovation —</strong> Use of local climate and yield data for better precision.</li>
-      <li><strong>Partnership —</strong> Collaboration with farmers, agencies, and cooperatives.</li>
-      <li><strong>Sustainability —</strong> Promoting long‑term resilience of Malaysia’s agri‑sector.</li>
+    <h2>💡 Our Core Values</h2>
+    <ul style="margin-left:1.5rem;line-height:1.7;">
+      <li><strong>Transparency –</strong> Clear premium structure & coverage.</li>
+      <li><strong>Innovation –</strong> Using climate and yield data for accuracy.</li>
+      <li><strong>Partnership –</strong> Working side‑by‑side with local farmers.</li>
+      <li><strong>Sustainability –</strong> Supporting resilient rural economies.</li>
     </ul>
   </section>
 
   <section>
-    <h2>📈 Our Products</h2>
-    <p>TerraShield currently supports multiple crops across Peninsular and East Malaysia — including Oil Palm, Paddy (Rice), Rubber, and Durian — offering tailored coverage levels and dynamic premium estimation tools.</p>
-    <p><a href="index.html" style="color:var(--dark-gold);text-decoration:underline;">Try our Premium Calculator →</a></p>
-  </section>
-
-  <section>
-    <h2>📍 Headquarters</h2>
-    <p>Kuala Lumpur – Malaysia<br>
-       <a href="mailto:info@terrashield.my" style="color:var(--dark-gold);">info@terrashield.my</a></p>
+    <h2>📈 Our Coverage Areas</h2>
+    <p>
+      TerraShield currently provides protection for Oil Palm, Rubber, Paddy (Rice), Durian,
+      Pineapple and other key Malaysian crops. Try our <a href="index.html" style="color:var(--dark-gold);font-weight:600;">Premium Calculator</a> to explore coverage levels.
+    </p>
+    <a href="index.html" class="button">Go to Calculator →</a>
   </section>
 </main>
 
