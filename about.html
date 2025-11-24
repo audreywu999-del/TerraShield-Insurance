@@ -11,15 +11,15 @@
     --gold: #E3A008;
     --dark-gold: #D97706;
     --light-cream: #FFF8E5;
-    --bg: #FFFCF7;
     --text-dark: #2C2A29;
+    --bg: #FFFCF7;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-
+  html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text-dark); }
 
-  /* ===== HEADER (same as index) ===== */
+  /* ===== HEADER NAV (copied from index) ===== */
   header {
     background: linear-gradient(90deg, var(--gold), var(--dark-gold));
     color: white;
@@ -34,7 +34,7 @@
 
   .logo-box { display: flex; align-items: center; gap: 10px; }
   .logo { height: 48px; width: auto; }
-  header h1 { font-size: 1.3rem; letter-spacing: .5px; margin: 0; }
+  header h1 { font-size: 1.3rem; letter-spacing: .5px; }
 
   nav a {
     color: white;
@@ -43,7 +43,7 @@
     font-weight: 500;
     position: relative;
     padding-bottom: 4px;
-    transition: color .3s ease;
+    transition: color 0.3s ease;
   }
 
   nav a:hover { color: var(--light-cream); }
@@ -52,7 +52,6 @@
     color: var(--light-cream);
     font-weight: 600;
   }
-
   nav a.active::after {
     content: "";
     position: absolute;
@@ -66,26 +65,18 @@
   /* ===== PAGE CONTENT ===== */
   main {
     max-width: 900px;
-    margin: 3rem auto;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    margin: 3rem auto;
     padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
   }
 
-  main h1 {
-    color: var(--dark-gold);
-    text-align: center;
-    margin-bottom: 1rem;
-  }
+  h1, h2 { color: var(--dark-gold); }
+  h1 { text-align: center; margin-bottom: 1rem; }
 
-  section h2 {
-    color: var(--dark-gold);
-    margin-top: 1.5rem;
-    margin-bottom: .5rem;
-  }
-
-  section ul { margin-left: 1.5rem; line-height: 1.7; }
+  section { margin-top: 2rem; line-height: 1.7; }
+  ul { margin-left: 1.5rem; }
 
   a.button {
     display: inline-block;
@@ -116,7 +107,7 @@
 
 <body>
 
-<!-- ✅ Header from header.html -->
+<!-- ✅ Header will be loaded dynamically -->
 <div id="site-header"></div>
 
 <script>
@@ -124,8 +115,6 @@ fetch('header.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('site-header').innerHTML = html;
-
-    // 让当前页面链接高亮
     const currentPage = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(link => {
       if (link.getAttribute('href').includes(currentPage)) {
