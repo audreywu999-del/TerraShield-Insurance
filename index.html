@@ -138,17 +138,18 @@
     font-size: .9rem;
   }
 
-/* === Disclaimer orange text only === */
+/* === Disclaimer: orange italic text === */
 .disclaimer-bar {
-  background: none;                /* ❌ 不要背景色 */
-  color: var(--dark-gold);         /* 🧡 用主题橙色文字 */
-  padding: 0.8rem 0;               /* 适当上下间距 */
+  background: none;                /* ❌ 无背景 */
+  color: var(--dark-gold);         /* 🧡 橙色文字 */
+  font-style: italic;              /* ✅ 斜体 */
+  padding: 0.8rem 0;               /* 保持上下留白 */
   margin-top: 1.5rem;
-  font-size: 0.85rem;              /* 调小字体 */
+  font-size: 0.70rem;              /* 小字体 */
   line-height: 1.6;
-  border: none;                    /* ❌ 无框 */
-  border-radius: 0;                /* ❌ 无圆角 */
-  text-align: left;                /* 可改为 center */
+  border: none;                    /* ❌ 无边框 */
+  border-radius: 0;
+  text-align: left;                /* 左对齐，可改 center */
 }
 
 .disclaimer-bar p {
@@ -156,6 +157,7 @@
   background: none;
   border: none;
   padding: 0;
+  font-style: inherit;             /* 继承父级斜体 */
 }
   
   @media(max-width:600px){
