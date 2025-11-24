@@ -190,10 +190,12 @@
         <option>W.P. Putrajaya</option>
       </select>
     </div>
+
     <div>
       <label for="district">District</label>
       <input id="district" placeholder="e.g. Kota Setar" />
     </div>
+
     <div>
       <label for="crop">Crop</label>
       <select id="crop" onchange="updateCoverageOptions()">
@@ -208,20 +210,21 @@
         <option>Mango</option>
       </select>
     </div>
+
     <div>
       <label for="yield">Expected Yield (t/ha)</label>
       <input id="yield" type="number" value="5.5" step="0.1" />
     </div>
+
     <div>
       <label for="area">Area (ha)</label>
       <input id="area" type="number" value="10" step="0.1" />
     </div>
+
     <div>
       <label for="coverage">Coverage Level</label>
       <select id="coverage">
-        <option value="0.7">70%</option>
-        <option value="0.8">80%</option>
-        <option value="0.9">90%</option>
+        <option value="">Select crop/state first</option>
       </select>
     </div>
   </div>
@@ -243,83 +246,89 @@
 <footer>© 2025 TerraShield Agriculture Insurance | All Rights Reserved</footer>
 
 <script>
-// === Coverage Limit Table ===
+// === Coverage Min & Max Table (from official listing) ===
 const coverageLimits = {
   "Oil Palm": {
-    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":90,
-    "Pahang":70,"Perak":90,"Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,
-    "Selangor":70,"Terengganu":70,"W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
+    "Negeri Sembilan":[50,90],"Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],
+    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
+    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   },
   "Durian": {
-    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":70,"Pahang":70,"Perak":80,
-    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
-    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
+    "Negeri Sembilan":[50,70],"Pahang":[50,70],"Perak":[50,80],"Perlis":[50,70],
+    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
+    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   },
   "Rubber": {
-    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":90,"Pahang":70,
-    "Perak":70,"Perlis":70,"Pulau Pinang":70,"Selangor":70,"Terengganu":70,"Sabah":80,"Sarawak":80,
-    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
+    "Negeri Sembilan":[50,90],"Pahang":[50,70],"Perak":[50,70],"Perlis":[50,70],
+    "Pulau Pinang":[50,70],"Selangor":[50,70],"Terengganu":[50,70],"Sabah":[50,80],
+    "Sarawak":[50,80],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   },
   "Paddy (Rice)": {
-    "Johor":70,"Kedah":90,"Kelantan":80,"Melaka":90,"Negeri Sembilan":70,"Pahang":80,
-    "Perak":70,"Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
-    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,80],"Melaka":[50,90],"Negeri Sembilan":[50,70],
+    "Pahang":[50,80],"Perak":[50,70],"Perlis":[50,70],"Pulau Pinang":[50,70],
+    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
+    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   },
   "Pineapple": {
-    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":90,"Negeri Sembilan":70,"Pahang":80,"Perak":90,
-    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":90,"Terengganu":70,
-    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,90],"Negeri Sembilan":[50,70],
+    "Pahang":[50,80],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
+    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,90],"Terengganu":[50,70],
+    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   },
   "Cocoa": {
-    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":70,"Pahang":70,"Perak":90,
-    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
-    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],"Negeri Sembilan":[50,70],
+    "Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
+    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
+    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   },
   "Coconut": {
-    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":70,"Pahang":70,"Perak":90,
-    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
-    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],"Negeri Sembilan":[50,70],
+    "Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
+    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
+    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   },
   "Mango": {
-    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":90,"Negeri Sembilan":70,"Pahang":70,"Perak":90,
-    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
-    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,90],"Negeri Sembilan":[50,70],
+    "Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
+    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
+    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
   }
 };
 
-// update coverage dropdown dynamically
+// === Update coverage dropdown with 5% steps ===
 function updateCoverageOptions() {
   const state = document.getElementById("state").value;
   const crop = document.getElementById("crop").value;
-  const coverage = document.getElementById("coverage");
-
-  coverage.innerHTML = ""; // clear existing options
+  const coverageSelect = document.getElementById("coverage");
+  coverageSelect.innerHTML = "";
 
   if (state && crop && coverageLimits[crop] && coverageLimits[crop][state]) {
-    const max = coverageLimits[crop][state];
-    const levels = [70,80,90].filter(l => l <= max);
-    levels.forEach(l=>{
+    const [min, max] = coverageLimits[crop][state];
+    for (let level = min; level <= max; level += 5) {
       const opt = document.createElement("option");
-      opt.value = l/100;
-      opt.textContent = l + "%";
-      coverage.appendChild(opt);
-    });
+      opt.value = level/100;
+      opt.textContent = level + "%";
+      coverageSelect.appendChild(opt);
+    }
   } else {
-    [70,80,90].forEach(l=>{
-      const opt = document.createElement("option");
-      opt.value=l/100; opt.textContent=l+"%";
-      coverage.appendChild(opt);
-    });
+    const opt = document.createElement("option");
+    opt.textContent = "Select crop and state";
+    coverageSelect.appendChild(opt);
   }
 }
 
+// === Premium calculation ===
 function calculatePremium() {
   const crop = document.getElementById("crop").value;
   const state = document.getElementById("state").value;
   const yieldVal = parseFloat(document.getElementById("yield").value);
   const area = parseFloat(document.getElementById("area").value);
   const coverage = parseFloat(document.getElementById("coverage").value);
-  if (!crop || !state || !yieldVal || !area){
+
+  if (!crop || !state || !yieldVal || !area || !coverage) {
     alert("Please fill all fields including crop and state.");
     return;
   }
@@ -330,19 +339,22 @@ function calculatePremium() {
   };
 
   const price = priceByCrop[crop] || 1500;
-  const volatility=0.15;
-  const pureRate=Math.max(0.01,volatility*(1-coverage)*3.0);
-  const expenses=0.12,profit=0.15;
-  const grossRate=pureRate/(1-expenses-profit);
-  const liability=yieldVal*price*area*coverage;
-  const premium=liability*grossRate;
+  const volatility = 0.15;
+  const pureRate = Math.max(0.01, volatility * (1-coverage) * 3.0);
+  const expenses = 0.12, profit = 0.15;
+  const grossRate = pureRate / (1 - expenses - profit);
+  const liability = yieldVal * price * area * coverage;
+  const premium = liability * grossRate;
 
-  const result=document.getElementById("resultBox");
+  const result = document.getElementById("resultBox");
   result.style.display="block";
-  result.innerHTML=`<strong>${crop}</strong> (${state})<br>
-  Expected Liability: RM ${liability.toLocaleString()}<br>
-  Gross Premium Rate: ${(grossRate*100).toFixed(2)}%<br>
-  💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>`;
+  result.innerHTML = `
+    <strong>${crop}</strong> (${state})<br>
+    Coverage: ${(coverage*100).toFixed(0)}%<br>
+    Expected Liability: RM ${liability.toLocaleString()}<br>
+    Gross Premium Rate: ${(grossRate*100).toFixed(2)}%<br>
+    💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>
+  `;
 }
 </script>
 </body>
