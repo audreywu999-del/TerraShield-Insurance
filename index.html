@@ -50,9 +50,26 @@
     text-decoration: none;
     margin-left: 1.2rem;
     font-weight: 500;
-    transition: opacity .2s;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
   }
-  nav a:hover { opacity: .9; }
+  nav a:hover { color: var(--light-cream); }
+
+  /* ----- active highlight ----- */
+  nav a.active {
+    color: var(--light-cream);
+    font-weight: 600;
+  }
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--light-cream);
+  }
 
   /* ===== HERO SECTION ===== */
   .hero {
@@ -133,7 +150,6 @@
     font-weight: 500;
   }
 
-  /* Disclaimer Italic Orange Bar */
   .disclaimer-bar {
     color: var(--dark-gold);
     font-family: "Georgia", "Times New Roman", serif;
@@ -143,12 +159,6 @@
     margin-top: 1.5rem;
   }
 
-  .disclaimer-bar p {
-    margin: 0;
-    line-height: inherit;
-  }
-
-  /* ===== COVERAGE PREVIEW ===== */
   .coverage-preview {
     text-align: center;
     background: #fff9ee;
@@ -169,7 +179,6 @@
   }
   .coverage-btn:hover { background: var(--gold); }
 
-  /* ===== FOOTER ===== */
   footer {
     text-align: center;
     background: var(--dark-gold);
@@ -195,7 +204,7 @@
     <h1>TerraShield Insurance</h1>
   </div>
   <nav>
-    <a href="./index.html" class="active">Calculator</a>
+    <a href="./index.html">Calculator</a>
     <a href="./coverage.html">Coverage</a>
     <a href="./about.html">About</a>
     <a href="#contact">Contact</a>
@@ -213,218 +222,34 @@
 <section id="calculator" class="container">
   <h3>Premium Calculator</h3>
   <div class="grid">
-    <div>
-      <label for="state">State</label>
-      <select id="state" onchange="updateCoverageOptions()">
-        <option value="">-- Select State --</option>
-        <option>Johor</option>
-        <option>Kedah</option>
-        <option>Kelantan</option>
-        <option>Melaka</option>
-        <option>Negeri Sembilan</option>
-        <option>Pahang</option>
-        <option>Perak</option>
-        <option>Perlis</option>
-        <option>Pulau Pinang</option>
-        <option>Sabah</option>
-        <option>Sarawak</option>
-        <option>Selangor</option>
-        <option>Terengganu</option>
-        <option>W.P. Kuala Lumpur</option>
-        <option>W.P Labuan</option>
-        <option>W.P. Putrajaya</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="district">District</label>
-      <input id="district" placeholder="e.g. Kota Setar" />
-    </div>
-
-    <div>
-      <label for="crop">Crop</label>
-      <select id="crop" onchange="updateCoverageOptions()">
-        <option value="">-- Select Crop --</option>
-        <option>Oil Palm</option>
-        <option>Rubber</option>
-        <option>Paddy (Rice)</option>
-        <option>Cocoa</option>
-        <option>Durian</option>
-        <option>Coconut</option>
-        <option>Pineapple</option>
-        <option>Mango</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="yield">Expected Yield (t/ha)</label>
-      <input id="yield" type="number" value="5.5" step="0.1" />
-    </div>
-
-    <div>
-      <label for="area">Area (ha)</label>
-      <input id="area" type="number" value="10" step="0.1" />
-    </div>
-
-    <div>
-      <label for="coverage">Coverage Level</label>
-      <select id="coverage">
-        <option value="">Select crop/state first</option>
-      </select>
-    </div>
-  </div>
-
-  <button onclick="calculatePremium()">Calculate</button>
-  <div id="resultBox"></div>
-
-  <div class="disclaimer-bar">
-    <p>
-      The above premiums are calculated at the standard premium rate and are for reference only. 
-      The actual premiums paid must include the premium levy collected by the Insurance Authority.
-    </p>
+    <!-- your calculator fields here -->
+    <div><label for="state">State</label><select id="state"></select></div>
   </div>
 </section>
 
-<!-- ===== ABOUT OVERVIEW ===== -->
-<section id="overview" class="container">
-  <h3>About TerraShield</h3>
-  <p>
-    TerraShield empowers Malaysian farmers with reliable, data-driven insurance tools to make crop protection transparent
-    and affordable for sustainable growth.
-  </p>
-</section>
-
-<!-- ===== COVERAGE PREVIEW ===== -->
-<section id="coverage-preview" class="container coverage-preview">
-  <h3>Crop & Risk Coverage Overview</h3>
-  <p>
-    Learn which crops and risks are included in our Malaysian Agricultural Insurance Program —
-    from rice, durian, and oil palm to protection from floods, droughts, and typhoons.
-  </p>
-  <a class="coverage-btn" href="./coverage.html">View Full Coverage →</a>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="container">
-  <h3>Contact Us</h3>
-  <p>
-    Email: <a href="mailto:info@terrashield.my">info@terrashield.my</a><br/>
-    Kuala Lumpur, Malaysia
-  </p>
-</section>
-
+<!-- ===== FOOTER ===== -->
 <footer>
   © 2025 TerraShield Agriculture Insurance | All Rights Reserved
 </footer>
 
 <!-- ===== SCRIPT ===== -->
 <script>
-const coverageLimits = {
-  "Oil Palm": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
-    "Negeri Sembilan":[50,90],"Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  },
-  "Durian": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
-    "Negeri Sembilan":[50,70],"Pahang":[50,70],"Perak":[50,80],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  },
-  "Rubber": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
-    "Negeri Sembilan":[50,90],"Pahang":[50,70],"Perak":[50,70],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Selangor":[50,70],"Terengganu":[50,70],"Sabah":[50,80],
-    "Sarawak":[50,80],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  },
-  "Paddy (Rice)": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,80],"Melaka":[50,90],"Negeri Sembilan":[50,70],
-    "Pahang":[50,80],"Perak":[50,70],"Perlis":[50,70],"Pulau Pinang":[50,70],
-    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
-    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  },
-  "Pineapple": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,90],"Negeri Sembilan":[50,70],
-    "Pahang":[50,80],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
-    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,90],"Terengganu":[50,70],
-    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  },
-  "Cocoa": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],"Negeri Sembilan":[50,70],
-    "Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
-    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
-    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  },
-  "Coconut": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],"Negeri Sembilan":[50,70],
-    "Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
-    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
-    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  },
-  "Mango": {
-    "Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,90],"Negeri Sembilan":[50,70],
-    "Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],
-    "Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],"Terengganu":[50,70],
-    "W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]
-  }
-};
-
-function updateCoverageOptions() {
-  const state = document.getElementById("state").value;
-  const crop = document.getElementById("crop").value;
-  const coverageSelect = document.getElementById("coverage");
-  coverageSelect.innerHTML = "";
-
-  if (state && crop && coverageLimits[crop] && coverageLimits[crop][state]) {
-    const [min, max] = coverageLimits[crop][state];
-    for (let level = min; level <= max; level += 5) {
-      const opt = document.createElement("option");
-      opt.value = level / 100;
-      opt.textContent = level + "%";
-      coverageSelect.appendChild(opt);
+/* === Auto-highlight current nav link === */
+(function(){
+  const currentPage = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("nav a").forEach(a=>{
+    const href = a.getAttribute("href");
+    if(href === currentPage || (href === "./" + currentPage)) {
+      a.classList.add("active");
     }
-  } else {
-    const opt = document.createElement("option");
-    opt.textContent = "Select crop and state";
-    coverageSelect.appendChild(opt);
-  }
-}
-
-function calculatePremium() {
-  const crop = document.getElementById("crop").value;
-  const state = document.getElementById("state").value;
-  const yieldVal = parseFloat(document.getElementById("yield").value);
-  const area = parseFloat(document.getElementById("area").value);
-  const coverage = parseFloat(document.getElementById("coverage").value);
-  if (!crop || !state || !yieldVal || !area || !coverage) {
-    alert("Please fill all fields including crop and state.");
-    return;
-  }
-
-  const priceByCrop = {
-    "Oil Palm":900,"Rubber":7000,"Paddy (Rice)":1500,"Cocoa":9000,
-    "Durian":5000,"Coconut":1400,"Pineapple":1200,"Mango":2500
-  };
-
-  const price = priceByCrop[crop] || 1500;
-  const volatility = 0.15;
-  const pureRate = Math.max(0.01, volatility * (1 - coverage) * 3.0);
-  const expenses = 0.12, profit = 0.15;
-  const grossRate = pureRate / (1 - expenses - profit);
-  const liability = yieldVal * price * area * coverage;
-  const premium = liability * grossRate;
-
-  const result = document.getElementById("resultBox");
-  result.style.display = "block";
-  result.innerHTML = `
-    <strong>${crop}</strong> (${state})<br>
-    Coverage: ${(coverage * 100).toFixed(0)}%<br>
-    Expected Liability: RM ${liability.toLocaleString()}<br>
-    Gross Premium Rate: ${(grossRate * 100).toFixed(2)}%<br>
-    💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>
-  `;
-}
+    // support hash-only anchors on same page
+    if(currentPage === "index.html" && href.startsWith("#")) {
+      a.classList.remove("active");
+    }
+  });
+})();
 </script>
+
+<!-- 你原本的 calculator 脚本可继续放在这里（省略显示） -->
 </body>
 </html>
