@@ -144,7 +144,7 @@
   font-family: "Georgia", "Times New Roman", serif;
   font-style: italic;
   font-size: 0.85rem;
-  line-height: 1.3;
+  line-height: 1.3;   /* ✅ 改成 1.3，行距更紧凑 */
   margin-top: 1.5rem;
   background: none;
   border: none;
@@ -153,6 +153,7 @@
 
 .disclaimer-bar p {
   margin: 0;
+  line-height: inherit;   /* ✅ 确保 p 继承父级行高 */
 }
   
   @media(max-width:600px){
