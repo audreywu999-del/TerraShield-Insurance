@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TerraShield Agriculture Insurance</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 <style>
   :root {
     --gold: #E3A008;
@@ -21,12 +21,13 @@
     font-family: 'Poppins', sans-serif;
   }
 
+  html { scroll-behavior: smooth; }
+
   body {
     background: var(--bg);
     color: var(--text-dark);
   }
 
-  /* HEADER */
   header {
     background: linear-gradient(90deg, var(--gold), var(--dark-gold));
     color: white;
@@ -39,155 +40,108 @@
     z-index: 10;
   }
 
-  .logo-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo {
-    height: 48px;
-    width: auto;
-  }
-
-  header h1 {
-    font-size: 1.3rem;
-    color: white;
-    margin: 0;
-    letter-spacing: 0.5px;
-  }
+  .logo-box { display: flex; align-items: center; gap: 10px; }
+  .logo { height: 48px; width: auto; }
+  header h1 { font-size: 1.3rem; letter-spacing: .5px; }
 
   nav a {
     color: white;
     text-decoration: none;
     margin-left: 1.2rem;
     font-weight: 500;
-    transition: opacity 0.2s ease;
+    transition: opacity .2s;
   }
+  nav a:hover { opacity: .9; }
 
-  nav a:hover { opacity: 0.8; }
-
-  /* HERO */
   .hero {
     background: linear-gradient(to right, #FFF7E0, #FFF8E5);
     text-align: center;
     padding: 4rem 1rem 3rem;
   }
-
   .hero h2 {
     font-size: 2.2rem;
-    margin-bottom: 1rem;
     color: var(--dark-gold);
   }
-
   .slogan {
     font-style: italic;
     color: var(--dark-gold);
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 500;
-    letter-spacing: 0.5px;
+    margin-top: .3rem;
+    margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(10px);
-    animation: fadeInSlogan 1.8s ease-out forwards;
-    animation-delay: 0.5s;
+    animation: fadeInSlogan 1.8s ease forwards;
+    animation-delay: .5s;
   }
-
   @keyframes fadeInSlogan {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .hero p {
-    font-size: 1.05rem;
-    color: #5C5143;
-  }
-
-  /* CONTAINERS */
   .container {
     max-width: 900px;
-    margin: 3rem auto;
     background: white;
+    margin: 3rem auto;
+    padding: 2rem;
     border-radius: 12px;
-    padding: 2.5rem;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
   }
-
   h3 {
     text-align: center;
     color: var(--dark-gold);
     margin-bottom: 1.2rem;
-    font-size: 1.4rem;
   }
 
   .grid {
     display: grid;
-    gap: 1.2rem;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 1rem;
   }
-
-  label {
-    display: block;
-    font-size: .9rem;
-    margin-bottom: .3rem;
-    color: #4B453E;
-  }
-
+  label { display: block; font-size: .9rem; margin-bottom: .3rem; }
   select, input {
     width: 100%;
     padding: .8rem;
     border-radius: 6px;
-    border: 1px solid #E5E2DD;
-    font-size: 1rem;
+    border: 1px solid #ddd;
   }
 
   button {
+    display: block;
     background: var(--dark-gold);
     color: white;
     border: none;
-    margin: 2rem auto 1rem;
-    display: block;
+    margin: 1.5rem auto 0;
     padding: .9rem 2.2rem;
-    font-size: 1.05rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: all .2s ease;
+    font-size: 1.05rem;
   }
-
-  button:hover {
-    background: var(--gold);
-    transform: translateY(-2px);
-  }
+  button:hover { background: var(--gold); transform: translateY(-2px); transition:.2s; }
 
   #resultBox {
+    display: none;
     background: var(--light-cream);
     text-align: center;
+    margin-top: 1rem;
     padding: 1rem;
     border-radius: 8px;
     color: var(--dark-gold);
     font-weight: 500;
-    display: none;
   }
 
   footer {
     text-align: center;
     background: var(--dark-gold);
     color: white;
-    padding: 1.5rem;
+    padding: 1.2rem;
     margin-top: 4rem;
     font-size: .9rem;
   }
 
-  a { color: var(--dark-gold); }
-  a:hover { text-decoration: underline; }
-
-  /* Responsive */
-  @media (max-width:600px) {
-    header { flex-direction: column; align-items: flex-start; }
-    nav { margin-top: .5rem; }
-    .hero h2 { font-size: 1.7rem; }
-    .container { padding: 1.5rem; margin: 2rem 1rem; }
+  @media(max-width:600px){
+    header{flex-direction:column;align-items:flex-start;}
+    .container{padding:1.5rem;}
+    .hero h2{font-size:1.7rem;}
   }
 </style>
 </head>
@@ -195,7 +149,7 @@
 
 <header>
   <div class="logo-box">
-    <img src="logo.png" alt="TerraShield Insurance Logo" class="logo">
+    <img src="logo.png" class="logo" alt="logo" />
     <h1>TerraShield Insurance</h1>
   </div>
   <nav>
@@ -207,8 +161,8 @@
 
 <section class="hero">
   <h2>Protecting Farmers, Securing Harvests</h2>
-  <h3 class="slogan">“Lebih Pasti, Lebih Tenang”</h3>
-  <p>Estimate your agricultural insurance premium instantly and plan risk coverage for your Malaysian crops.</p>
+  <h3 class="slogan">“Lebih Pasti, Lebih Tenang”</h3>
+  <p>Estimate your agricultural insurance premium instantly for your Malaysian crops.</p>
 </section>
 
 <section id="calculator" class="container">
@@ -216,7 +170,7 @@
   <div class="grid">
     <div>
       <label for="state">State</label>
-      <select id="state">
+      <select id="state" onchange="updateCoverageOptions()">
         <option value="">-- Select State --</option>
         <option>Johor</option>
         <option>Kedah</option>
@@ -232,15 +186,17 @@
         <option>Selangor</option>
         <option>Terengganu</option>
         <option>W.P. Kuala Lumpur</option>
+        <option>W.P Labuan</option>
+        <option>W.P. Putrajaya</option>
       </select>
     </div>
     <div>
       <label for="district">District</label>
-      <input id="district" type="text" placeholder="e.g. Kota Setar">
+      <input id="district" placeholder="e.g. Kota Setar" />
     </div>
     <div>
       <label for="crop">Crop</label>
-      <select id="crop">
+      <select id="crop" onchange="updateCoverageOptions()">
         <option value="">-- Select Crop --</option>
         <option>Oil Palm</option>
         <option>Rubber</option>
@@ -254,17 +210,17 @@
     </div>
     <div>
       <label for="yield">Expected Yield (t/ha)</label>
-      <input id="yield" type="number" step="0.1" value="5.5">
+      <input id="yield" type="number" value="5.5" step="0.1" />
     </div>
     <div>
       <label for="area">Area (ha)</label>
-      <input id="area" type="number" step="0.1" value="10">
+      <input id="area" type="number" value="10" step="0.1" />
     </div>
     <div>
       <label for="coverage">Coverage Level</label>
       <select id="coverage">
         <option value="0.7">70%</option>
-        <option value="0.8" selected>80%</option>
+        <option value="0.8">80%</option>
         <option value="0.9">90%</option>
       </select>
     </div>
@@ -276,58 +232,118 @@
 
 <section id="about" class="container">
   <h3>About TerraShield</h3>
-  <p>TerraShield empowers Malaysian farmers with reliable, data‑driven insurance tools. 
-  We make crop protection transparent, accessible, and affordable for sustainable growth.</p>
+  <p>TerraShield empowers Malaysian farmers with reliable, data-driven insurance tools to make crop protection transparent and affordable for sustainable growth.</p>
 </section>
 
 <section id="contact" class="container">
   <h3>Contact Us</h3>
-  <p>Email: <a href="mailto:info@terrashield.my">info@terrashield.my</a><br>
-  Kuala Lumpur, Malaysia</p>
+  <p>Email: <a href="mailto:info@terrashield.my">info@terrashield.my</a><br/>Kuala Lumpur, Malaysia</p>
 </section>
 
-<footer>
-  © 2025 TerraShield Agriculture Insurance | All Rights Reserved
-</footer>
+<footer>© 2025 TerraShield Agriculture Insurance | All Rights Reserved</footer>
 
 <script>
+// === Coverage Limit Table ===
+const coverageLimits = {
+  "Oil Palm": {
+    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":90,
+    "Pahang":70,"Perak":90,"Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,
+    "Selangor":70,"Terengganu":70,"W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  },
+  "Durian": {
+    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":70,"Pahang":70,"Perak":80,
+    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
+    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  },
+  "Rubber": {
+    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":90,"Pahang":70,
+    "Perak":70,"Perlis":70,"Pulau Pinang":70,"Selangor":70,"Terengganu":70,"Sabah":80,"Sarawak":80,
+    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  },
+  "Paddy (Rice)": {
+    "Johor":70,"Kedah":90,"Kelantan":80,"Melaka":90,"Negeri Sembilan":70,"Pahang":80,
+    "Perak":70,"Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
+    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  },
+  "Pineapple": {
+    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":90,"Negeri Sembilan":70,"Pahang":80,"Perak":90,
+    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":90,"Terengganu":70,
+    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  },
+  "Cocoa": {
+    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":70,"Pahang":70,"Perak":90,
+    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
+    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  },
+  "Coconut": {
+    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":70,"Negeri Sembilan":70,"Pahang":70,"Perak":90,
+    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
+    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  },
+  "Mango": {
+    "Johor":70,"Kedah":90,"Kelantan":70,"Melaka":90,"Negeri Sembilan":70,"Pahang":70,"Perak":90,
+    "Perlis":70,"Pulau Pinang":70,"Sabah":80,"Sarawak":80,"Selangor":70,"Terengganu":70,
+    "W.P. Kuala Lumpur":70,"W.P Labuan":70,"W.P. Putrajaya":70
+  }
+};
+
+// update coverage dropdown dynamically
+function updateCoverageOptions() {
+  const state = document.getElementById("state").value;
+  const crop = document.getElementById("crop").value;
+  const coverage = document.getElementById("coverage");
+
+  coverage.innerHTML = ""; // clear existing options
+
+  if (state && crop && coverageLimits[crop] && coverageLimits[crop][state]) {
+    const max = coverageLimits[crop][state];
+    const levels = [70,80,90].filter(l => l <= max);
+    levels.forEach(l=>{
+      const opt = document.createElement("option");
+      opt.value = l/100;
+      opt.textContent = l + "%";
+      coverage.appendChild(opt);
+    });
+  } else {
+    [70,80,90].forEach(l=>{
+      const opt = document.createElement("option");
+      opt.value=l/100; opt.textContent=l+"%";
+      coverage.appendChild(opt);
+    });
+  }
+}
+
 function calculatePremium() {
   const crop = document.getElementById("crop").value;
+  const state = document.getElementById("state").value;
   const yieldVal = parseFloat(document.getElementById("yield").value);
   const area = parseFloat(document.getElementById("area").value);
   const coverage = parseFloat(document.getElementById("coverage").value);
-  if (!crop || !yieldVal || !area) {
-    alert("Please fill all fields.");
+  if (!crop || !state || !yieldVal || !area){
+    alert("Please fill all fields including crop and state.");
     return;
   }
 
   const priceByCrop = {
-    "Oil Palm": 900,
-    "Rubber": 7000,
-    "Paddy (Rice)": 1500,
-    "Cocoa": 9000,
-    "Durian": 5000,
-    "Coconut": 1400,
-    "Pineapple": 1200,
-    "Mango": 2500
+    "Oil Palm":900,"Rubber":7000,"Paddy (Rice)":1500,"Cocoa":9000,
+    "Durian":5000,"Coconut":1400,"Pineapple":1200,"Mango":2500
   };
 
   const price = priceByCrop[crop] || 1500;
-  const volatility = 0.15;
-  const pureRate = Math.max(0.01, volatility * (1 - coverage) * 3.0);
-  const expenses = 0.12, profit = 0.15;
-  const grossRate = pureRate / (1 - expenses - profit);
-  const liability = yieldVal * price * area * coverage;
-  const premium = liability * grossRate;
+  const volatility=0.15;
+  const pureRate=Math.max(0.01,volatility*(1-coverage)*3.0);
+  const expenses=0.12,profit=0.15;
+  const grossRate=pureRate/(1-expenses-profit);
+  const liability=yieldVal*price*area*coverage;
+  const premium=liability*grossRate;
 
-  const result = document.getElementById("resultBox");
-  result.style.display = "block";
-  result.innerHTML = `<strong>${crop}</strong><br>
+  const result=document.getElementById("resultBox");
+  result.style.display="block";
+  result.innerHTML=`<strong>${crop}</strong> (${state})<br>
   Expected Liability: RM ${liability.toLocaleString()}<br>
-  Gross Premium Rate: ${(grossRate * 100).toFixed(2)}%<br>
+  Gross Premium Rate: ${(grossRate*100).toFixed(2)}%<br>
   💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>`;
 }
 </script>
-
 </body>
 </html>
