@@ -1,0 +1,14 @@
+<!-- ===== STANDARD HEADER ===== -->
+<header>
+  <div class="logo-box">
+    <img src="logo.png" class="logo" alt="TerraShield logo" />
+    <h1>TerraShield Insurance</h1>
+  </div>
+  <nav>
+    <a href="index.html">Calculator</a>
+    <a href="coverage.html">Coverage</a>
+    <a href="about.html">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<!-- ===== END HEADER ===== -->
