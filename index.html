@@ -197,19 +197,8 @@
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
-<header>
-  <div class="logo-box">
-    <img src="logo.png" class="logo" alt="logo" />
-    <h1>TerraShield Insurance</h1>
-  </div>
-  <nav>
-    <a href="./index.html">Calculator</a>
-    <a href="./coverage.html">Coverage</a>
-    <a href="./about.html">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+<!-- ✅ Header will be loaded here -->
+<div id="site-header"></div>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
@@ -309,6 +298,24 @@
 <footer>
   © 2025 TerraShield Agriculture Insurance | All Rights Reserved
 </footer>
+
+<!-- ✅ 在这里插入加载脚本 -->
+<script>
+fetch('header.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('site-header').innerHTML = html;
+
+    // 🔸 让当前页面导航项高亮
+    const currentPage = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href").includes(currentPage)) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
 
 <!-- ===== SCRIPT ===== -->
 <script>
