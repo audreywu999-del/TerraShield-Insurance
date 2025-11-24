@@ -138,19 +138,24 @@
     font-size: .9rem;
   }
 
-/* === Orange disclaimer bar (flat, full-width) === */
+/* === Disclaimer orange text only === */
 .disclaimer-bar {
-  background: 
-  color: dark-gold;
-  padding: 0.8rem 1rem;   /* 减少内边距，让条更紧凑 */
+  background: none;                /* ❌ 不要背景色 */
+  color: var(--dark-gold);         /* 🧡 用主题橙色文字 */
+  padding: 0.8rem 0;               /* 适当上下间距 */
   margin-top: 1.5rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  opacity: 0.9;
-  border-radius: 0;       /* ✅ 去掉圆角 */
+  font-size: 0.85rem;              /* 调小字体 */
+  line-height: 1.6;
+  border: none;                    /* ❌ 无框 */
+  border-radius: 0;                /* ❌ 无圆角 */
+  text-align: left;                /* 可改为 center */
 }
+
 .disclaimer-bar p {
   margin: 0;
+  background: none;
+  border: none;
+  padding: 0;
 }
   
   @media(max-width:600px){
