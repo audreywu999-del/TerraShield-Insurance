@@ -1,58 +1,150 @@
 <!DOCTYPE html>
-<nav>
-  <a href="./index.html">Calculator</a>
-  <a href="./about.html" class="active">About</a>
-</nav>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About TerraShield Insurance</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
 <style>
-  :root{
-    --gold:#E3A008;--dark-gold:#D97706;--bg:#FFFCF7;--text:#2C2A29;
+  :root {
+    --gold: #E3A008;
+    --dark-gold: #D97706;
+    --light-cream: #FFF8E5;
+    --bg: #FFFCF7;
+    --text-dark: #2C2A29;
   }
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-  body{background:var(--bg);color:var(--text);}
 
-  header{
-    background:linear-gradient(90deg,var(--gold),var(--dark-gold));
-    color:white;padding:1rem 1.5rem;
-    display:flex;justify-content:space-between;align-items:center;
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
   }
-  .logo-box{display:flex;align-items:center;gap:10px;}
-  .logo{height:48px;}
-  nav a{color:white;text-decoration:none;margin-left:1rem;font-weight:500;}
-  nav a:hover{text-decoration:underline;}
 
-  main{max-width:900px;margin:3rem auto;background:white;
-       border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.08);padding:2rem;}
-  h1,h2{color:var(--dark-gold);}
-  h1{text-align:center;margin-bottom:1rem;}
-  section{margin-top:2rem;}
-  footer{text-align:center;background:var(--dark-gold);
-         color:white;padding:1.2rem;margin-top:4rem;}
-  @media(max-width:600px){header{flex-direction:column;align-items:flex-start;}}
+  body {
+    background: var(--bg);
+    color: var(--text-dark);
+  }
 
-  a.button{display:inline-block;margin-top:1rem;background:var(--dark-gold);
-           color:white;padding:0.6rem 1.2rem;border-radius:8px;text-decoration:none;}
-  a.button:hover{background:var(--gold);}
+  /* ===== HEADER NAV (same as index) ===== */
+  header {
+    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo {
+    height: 48px;
+    width: auto;
+  }
+  header h1 {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+  nav a:hover { color: var(--light-cream); }
+
+  nav a.active {
+    color: var(--light-cream);
+    font-weight: 600;
+  }
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--light-cream);
+  }
+
+  /* ===== PAGE CONTENT ===== */
+  main {
+    max-width: 900px;
+    margin: 3rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    padding: 2rem;
+  }
+
+  h1, h2 { color: var(--dark-gold); }
+  h1 { text-align: center; margin-bottom: 1rem; }
+  section { margin-top: 2rem; line-height: 1.7; }
+  ul { margin-left: 1.5rem; }
+
+  a.button {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--dark-gold);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  a.button:hover { background: var(--gold); }
+
+  footer {
+    text-align: center;
+    background: var(--dark-gold);
+    color: white;
+    padding: 1.2rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    header { flex-direction: column; align-items: flex-start; }
+    main { margin: 2rem 1rem; }
+  }
 </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo-box">
-    <img src="logo.png" alt="TerraShield Logo" class="logo">
-    <h1>TerraShield Insurance</h1>
-  </div>
-  <nav>
-    <a href="index.html">Calculator</a>
-    <a href="about.html" class="active">About</a>
-  </nav>
-</header>
+<!-- ✅ Header will be dynamically loaded -->
+<div id="site-header"></div>
 
+<!-- ✅ Load shared header.html -->
+<script>
+fetch('header.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('site-header').innerHTML = html;
+
+    // Highlight current nav item
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(link => {
+      if (link.getAttribute('href').includes(currentPage)) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<!-- ===== MAIN CONTENT ===== -->
 <main>
   <h1>About TerraShield</h1>
   <p>
@@ -71,7 +163,7 @@
 
   <section>
     <h2>💡 Our Core Values</h2>
-    <ul style="margin-left:1.5rem;line-height:1.7;">
+    <ul>
       <li><strong>Transparency –</strong> Clear premium structure & coverage.</li>
       <li><strong>Innovation –</strong> Using climate and yield data for accuracy.</li>
       <li><strong>Partnership –</strong> Working side‑by‑side with local farmers.</li>
@@ -82,14 +174,18 @@
   <section>
     <h2>📈 Our Coverage Areas</h2>
     <p>
-      TerraShield currently provides protection for Oil Palm, Rubber, Paddy (Rice), Durian,
-      Pineapple and other key Malaysian crops. Try our <a href="index.html" style="color:var(--dark-gold);font-weight:600;">Premium Calculator</a> to explore coverage levels.
+      TerraShield currently provides protection for Oil Palm, Rubber, Paddy (Rice), Durian, Pineapple and other key Malaysian crops.
+      Try our 
+      <a href="index.html" style="color:var(--dark-gold);font-weight:600;">Premium Calculator</a>
+      to explore coverage levels.
     </p>
     <a href="index.html" class="button">Go to Calculator →</a>
   </section>
 </main>
 
-<footer>© 2025 TerraShield Agriculture Insurance | All Rights Reserved</footer>
+<footer>
+  © 2025 TerraShield Agriculture Insurance | All Rights Reserved
+</footer>
 
 </body>
 </html>
