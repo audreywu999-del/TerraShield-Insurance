@@ -1,0 +1,295 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\
+<title>Malaysia Agriculture Insurance Premium Calculator 2025</title>\
+<style>\
+  body \{\
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;\
+    background: #f1f5f9;\
+    color: #1e293b;\
+    margin: 0;\
+  \}\
+  header \{\
+    background-color: #047857;\
+    color: white;\
+    text-align: center;\
+    padding: 1rem;\
+    font-size: 1.3rem;\
+  \}\
+  .container \{\
+    max-width: 1000px;\
+    margin: 2rem auto;\
+    background: white;\
+    padding: 2rem;\
+    border-radius: 12px;\
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);\
+  \}\
+  h2 \{\
+    text-align: center;\
+    color: #065f46;\
+    margin-bottom: 1rem;\
+  \}\
+  .grid \{\
+    display: grid;\
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));\
+    gap: 1.2rem;\
+  \}\
+  label \{ font-size: 0.9rem; margin-bottom: 0.3rem; display: block; \}\
+  select, input \{\
+    width: 100%;\
+    padding: 8px 10px;\
+    font-size: 1rem;\
+    border: 1px solid #d1d5db;\
+    border-radius: 6px;\
+  \}\
+  button \{\
+    background-color: #065f46;\
+    color: white;\
+    border: none;\
+    padding: 0.9rem 2rem;\
+    font-size: 1.1rem;\
+    border-radius: 6px;\
+    cursor: pointer;\
+    display: block;\
+    margin: 2rem auto;\
+  \}\
+  button:hover \{ background-color: #064e3b; \}\
+  #resultBox \{\
+    margin-top: 1.5rem;\
+    background-color: #dcfce7;\
+    padding: 1rem;\
+    border-radius: 6px;\
+    text-align: center;\
+    font-size: 1.05rem;\
+    color: #065f46;\
+    display: none;\
+  \}\
+  footer \{\
+    text-align: center;\
+    font-size: 0.85rem;\
+    color: #64748b;\
+    margin: 3rem 0 1rem 0;\
+  \}\
+\
+  /* Premium Table Styles */\
+  .table-container \{\
+    overflow-x: auto;\
+    margin-top: 3rem;\
+  \}\
+  table \{\
+    border-collapse: collapse;\
+    width: 100%;\
+    min-width: 900px;\
+    font-size: 0.95rem;\
+    text-align: center;\
+  \}\
+  th, td \{\
+    border: 1px solid #e2e8f0;\
+    padding: 8px;\
+  \}\
+  th \{\
+    background: #f8fafc;\
+    font-weight: 600;\
+  \}\
+  thead tr:first-child th \{\
+    border-top: 2px solid #0369a1;\
+  \}\
+  caption \{\
+    caption-side: top;\
+    font-weight: 600;\
+    font-size: 1.2rem;\
+    padding-bottom: 0.5rem;\
+    color: #075985;\
+  \}\
+</style>\
+</head>\
+<body>\
+\
+<header>\uc0\u55356 \u57150  Malaysia Agriculture Insurance Premium Estimator \'96 2025</header>\
+\
+<div class="container">\
+  <h2>Enter Your Farm Details</h2>\
+  <div class="grid">\
+    <div>\
+      <label for="state">State</label>\
+      <select id="state" onchange="updateCrops()">\
+        <option value="">-- Select State --</option>\
+        <option>Johor</option>\
+        <option>Kedah</option>\
+        <option>Kelantan</option>\
+        <option>Melaka</option>\
+        <option>Negeri Sembilan</option>\
+        <option>Pahang</option>\
+        <option>Perak</option>\
+        <option>Perlis</option>\
+        <option>Pulau Pinang</option>\
+        <option>Sabah</option>\
+        <option>Sarawak</option>\
+        <option>Selangor</option>\
+        <option>Terengganu</option>\
+        <option>W.P. Kuala Lumpur</option>\
+        <option>W.P. Labuan</option>\
+        <option>W.P. Putrajaya</option>\
+      </select>\
+    </div>\
+\
+    <div>\
+      <label for="district">District</label>\
+      <input id="district" type="text" placeholder="e.g., Kota Setar">\
+    </div>\
+\
+    <div>\
+      <label for="crop">Crop / Activity Group</label>\
+      <select id="crop">\
+        <option value="">-- Select Crop --</option>\
+      </select>\
+    </div>\
+\
+    <div>\
+      <label for="yield">Expected Yield (tonnes/ha)</label>\
+      <input id="yield" type="number" min="0" step="0.1" value="5.5">\
+    </div>\
+\
+    <div>\
+      <label for="area">Area (hectares)</label>\
+      <input id="area" type="number" min="0" step="0.1" value="10">\
+    </div>\
+\
+    <div>\
+      <label for="coverage">Coverage Level (%)</label>\
+      <select id="coverage">\
+        <option value="0.7">70%</option>\
+        <option value="0.75">75%</option>\
+        <option value="0.8" selected>80%</option>\
+        <option value="0.85">85%</option>\
+        <option value="0.9">90%</option>\
+      </select>\
+    </div>\
+  </div>\
+\
+  <button onclick="calculatePremium()">CALCULATE PREMIUM</button>\
+\
+  <div id="resultBox"></div>\
+\
+  <!-- ===== Premium Table Section ===== -->\
+  <div class="table-container">\
+    <table>\
+      <caption>Premiums Per Hectare \'96 Individual Farm Level Policies</caption>\
+      <thead>\
+        <tr>\
+          <th rowspan="2">Coverage Level</th>\
+          <th colspan="3">Revenue Protection</th>\
+          <th colspan="3">Revenue Protection (Harvest Price Excl.)</th>\
+          <th colspan="3">Yield Protection</th>\
+        </tr>\
+        <tr>\
+          <th>Enterprise</th><th>Basic</th><th>Optional</th>\
+          <th>Enterprise</th><th>Basic</th><th>Optional</th>\
+          <th>Enterprise</th><th>Basic</th><th>Optional</th>\
+        </tr>\
+      </thead>\
+      <tbody>\
+        <tr><td>50%</td><td>1.65</td><td>2.72</td><td>4.20</td><td>1.14</td><td>1.87</td><td>2.96</td><td>1.36</td><td>2.24</td><td>3.48</td></tr>\
+        <tr><td>55%</td><td>2.24</td><td>4.03</td><td>6.02</td><td>1.48</td><td>2.66</td><td>4.15</td><td>1.79</td><td>3.22</td><td>4.90</td></tr>\
+        <tr><td>60%</td><td>2.95</td><td>5.31</td><td>7.70</td><td>1.88</td><td>3.39</td><td>5.16</td><td>2.31</td><td>4.15</td><td>6.20</td></tr>\
+        <tr><td>65%</td><td>3.93</td><td>8.05</td><td>11.48</td><td>2.43</td><td>4.99</td><td>7.59</td><td>2.98</td><td>6.10</td><td>8.93</td></tr>\
+        <tr><td>70%</td><td>5.56</td><td>11.52</td><td>15.75</td><td>3.41</td><td>7.11</td><td>10.53</td><td>4.00</td><td>8.32</td><td>11.90</td></tr>\
+        <tr><td>75%</td><td>8.58</td><td>17.24</td><td>22.82</td><td>5.35</td><td>10.92</td><td>15.57</td><td>5.99</td><td>12.18</td><td>17.10</td></tr>\
+        <tr><td>80%</td><td>15.73</td><td>26.64</td><td>34.31</td><td>9.98</td><td>17.31</td><td>24.01</td><td>10.76</td><td>18.56</td><td>25.60</td></tr>\
+        <tr><td>85%</td><td>29.67</td><td>40.10</td><td>50.22</td><td>19.34</td><td>26.47</td><td>35.76</td><td>19.44</td><td>27.24</td><td>36.90</td></tr>\
+      </tbody>\
+    </table>\
+  </div>\
+</div>\
+\
+<footer>\
+  Based on demonstration data \'96 for educational pricing estimation only.\
+</footer>\
+\
+<script>\
+  // State-to-Crop mapping\
+  const stateCrops = \{\
+    "Johor": ["Oil Palm"],\
+    "Kedah": ["Rubber"],\
+    "Kelantan": ["Paddy (Rice)"],\
+    "Melaka": ["Cocoa"],\
+    "Negeri Sembilan": ["Cocoa"],\
+    "Pahang": ["Durian"],\
+    "Perak": ["Coconut"],\
+    "Perlis": ["Pineapple"],\
+    "Pulau Pinang": ["Mango"],\
+    "Sabah": ["Oil Palm", "Cocoa"],\
+    "Sarawak": ["Oil Palm", "Cocoa"],\
+    "Selangor": ["Paddy (Rice)", "Coconut"],\
+    "Terengganu": ["Paddy (Rice)", "Coconut"],\
+    "W.P. Kuala Lumpur": ["Urban Horticulture"],\
+    "W.P. Labuan": ["Coconut"],\
+    "W.P. Putrajaya": ["Research / Demo Plots"]\
+  \};\
+\
+  function updateCrops() \{\
+    const state = document.getElementById("state").value;\
+    const cropSelect = document.getElementById("crop");\
+    cropSelect.innerHTML = "<option value=''>-- Select Crop --</option>";\
+    if (stateCrops[state]) \{\
+      stateCrops[state].forEach(crop => \{\
+        const opt = document.createElement("option");\
+        opt.textContent = crop;\
+        opt.value = crop;\
+        cropSelect.appendChild(opt);\
+      \});\
+    \}\
+  \}\
+\
+  function calculatePremium() \{\
+    const crop = document.getElementById("crop").value;\
+    const yieldVal = parseFloat(document.getElementById("yield").value);\
+    const area = parseFloat(document.getElementById("area").value);\
+    const coverage = parseFloat(document.getElementById("coverage").value);\
+\
+    if (!crop || isNaN(yieldVal) || isNaN(area)) \{\
+      alert("Please fill in all fields.");\
+      return;\
+    \}\
+\
+    const priceByCrop = \{\
+      "Oil Palm": 900,\
+      "Rubber": 7000,\
+      "Paddy (Rice)": 1500,\
+      "Cocoa": 9000,\
+      "Durian": 5000,\
+      "Coconut": 1400,\
+      "Pineapple": 1200,\
+      "Mango": 2500\
+    \};\
+\
+    const price = priceByCrop[crop] || 1500;\
+    const volatility = 0.15;\
+    const pureRate = Math.max(0.01, volatility * (1 - coverage) * 3.0);\
+    const expenses = 0.12, profit = 0.15;\
+    const grossRate = pureRate / (1 - expenses - profit);\
+    const liability = yieldVal * price * area * coverage;\
+    const premium = liability * grossRate;\
+\
+    const rBox = document.getElementById("resultBox");\
+    rBox.style.display = "block";\
+    rBox.innerHTML =\
+      `<strong>$\{crop\} Insurance Estimate</strong><br>` +\
+      `Expected Liability: RM $\{liability.toLocaleString(undefined,\{maximumFractionDigits:0\})\}<br>` +\
+      `Pure Premium Rate: $\{(pureRate*100).toFixed(2)\}%<br>` +\
+      `Gross Premium Rate: $\{(grossRate*100).toFixed(2)\}%<br>` +\
+      `<strong>Estimated Premium: RM $\{premium.toLocaleString(undefined,\{maximumFractionDigits:0\})\}</strong>`;\
+  \}\
+</script>\
+\
+</body>\
+</html>}
