@@ -133,16 +133,27 @@
   </style>
 </head>
 <body>
-  <!-- ===== NAVBAR ===== -->
-  <header>
-    <a class="logo" href="index.html">TerraShield Insurance</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="calculator.html">Calculator</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+
+<!-- ✅ Header will be loaded here -->
+<div id="site-header"></div>
+
+<!-- ✅ 在这里插入加载脚本 -->
+<script>
+fetch('header.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('site-header').innerHTML = html;
+
+    // 🔸 让当前页面导航项高亮
+    const currentPage = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href").includes(currentPage)) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
 
   <!-- ===== COVERAGE SECTION ===== -->
   <section class="coverage-section">
