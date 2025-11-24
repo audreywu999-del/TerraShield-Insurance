@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About TerraShield Insurance</title>
+<title>About TerraShield Agriculture Insurance</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
 <style>
@@ -15,19 +15,11 @@
     --text-dark: #2C2A29;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
 
-  body {
-    background: var(--bg);
-    color: var(--text-dark);
-  }
+  body { background: var(--bg); color: var(--text-dark); }
 
-  /* ===== HEADER NAV (same as index) ===== */
+  /* ===== HEADER (same as index) ===== */
   header {
     background: linear-gradient(90deg, var(--gold), var(--dark-gold));
     color: white;
@@ -40,20 +32,9 @@
     z-index: 10;
   }
 
-  .logo-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .logo {
-    height: 48px;
-    width: auto;
-  }
-  header h1 {
-    font-size: 1.3rem;
-    letter-spacing: 0.5px;
-    margin: 0;
-  }
+  .logo-box { display: flex; align-items: center; gap: 10px; }
+  .logo { height: 48px; width: auto; }
+  header h1 { font-size: 1.3rem; letter-spacing: .5px; margin: 0; }
 
   nav a {
     color: white;
@@ -62,14 +43,16 @@
     font-weight: 500;
     position: relative;
     padding-bottom: 4px;
-    transition: color 0.3s ease;
+    transition: color .3s ease;
   }
+
   nav a:hover { color: var(--light-cream); }
 
   nav a.active {
     color: var(--light-cream);
     font-weight: 600;
   }
+
   nav a.active::after {
     content: "";
     position: absolute;
@@ -87,20 +70,29 @@
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,.08);
-    padding: 2rem;
+    padding: 2.5rem;
   }
 
-  h1, h2 { color: var(--dark-gold); }
-  h1 { text-align: center; margin-bottom: 1rem; }
-  section { margin-top: 2rem; line-height: 1.7; }
-  ul { margin-left: 1.5rem; }
+  main h1 {
+    color: var(--dark-gold);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  section h2 {
+    color: var(--dark-gold);
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+  }
+
+  section ul { margin-left: 1.5rem; line-height: 1.7; }
 
   a.button {
     display: inline-block;
     margin-top: 1rem;
     background: var(--dark-gold);
     color: white;
-    padding: 0.6rem 1.2rem;
+    padding: .6rem 1.2rem;
     border-radius: 8px;
     text-decoration: none;
   }
@@ -112,29 +104,28 @@
     color: white;
     padding: 1.2rem;
     margin-top: 4rem;
-    font-size: 0.9rem;
+    font-size: .9rem;
   }
 
-  @media (max-width: 600px) {
-    header { flex-direction: column; align-items: flex-start; }
-    main { margin: 2rem 1rem; }
+  @media(max-width:600px){
+    header{flex-direction:column;align-items:flex-start;}
+    main{margin:2rem 1rem;padding:1.5rem;}
   }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ Header will be dynamically loaded -->
+<!-- ✅ Header from header.html -->
 <div id="site-header"></div>
 
-<!-- ✅ Load shared header.html -->
 <script>
 fetch('header.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('site-header').innerHTML = html;
 
-    // Highlight current nav item
+    // 让当前页面链接高亮
     const currentPage = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(link => {
       if (link.getAttribute('href').includes(currentPage)) {
@@ -144,7 +135,7 @@ fetch('header.html')
   });
 </script>
 
-<!-- ===== MAIN CONTENT ===== -->
+<!-- ===== ABOUT CONTENT ===== -->
 <main>
   <h1>About TerraShield</h1>
   <p>
@@ -175,17 +166,13 @@ fetch('header.html')
     <h2>📈 Our Coverage Areas</h2>
     <p>
       TerraShield currently provides protection for Oil Palm, Rubber, Paddy (Rice), Durian, Pineapple and other key Malaysian crops.
-      Try our 
-      <a href="index.html" style="color:var(--dark-gold);font-weight:600;">Premium Calculator</a>
-      to explore coverage levels.
+      Try our <a href="index.html" style="color:var(--dark-gold);font-weight:600;">Premium Calculator</a> to explore coverage levels.
     </p>
     <a href="index.html" class="button">Go to Calculator →</a>
   </section>
 </main>
 
-<footer>
-  © 2025 TerraShield Agriculture Insurance | All Rights Reserved
-</footer>
+<footer>© 2025 TerraShield Agriculture Insurance | All Rights Reserved</footer>
 
 </body>
 </html>
