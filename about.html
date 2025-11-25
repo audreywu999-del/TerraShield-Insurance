@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About – TerraShield Agriculture Insurance</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --gold:#E3A008;
@@ -13,6 +12,7 @@
       --light-cream:#FFF8E5;
       --text-dark:#2C2A29;
       --bg:#FFFCF7;
+      --text-light:#666;
     }
 
     * {
@@ -21,14 +21,9 @@
       padding:0;
       font-family:"Poppins",sans-serif;
     }
+    body { background:var(--bg); color:var(--text-dark); }
 
-    html { scroll-behavior:smooth; }
-    body {
-      background:var(--bg);
-      color:var(--text-dark);
-    }
-
-    /* ==== Header 样式（与 index 保持一致） ==== */
+    /* ===== HEADER（复制 Coverage 页设置） ===== */
     header {
       background:linear-gradient(90deg,var(--gold),var(--dark-gold));
       color:white;
@@ -40,42 +35,22 @@
       top:0;
       z-index:10;
     }
-    .logo-box{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
+    .logo-box{display:flex;align-items:center;gap:10px;}
     .logo{height:48px;width:auto;}
-    header h1{
-      font-size:1.3rem;
-      letter-spacing:0.5px;
-      margin:0;
-    }
+    header h1{font-size:1.3rem;letter-spacing:.5px;margin:0;}
     nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:1.2rem;
-      font-weight:500;
-      position:relative;
-      padding-bottom:4px;
-      transition:color 0.3s ease;
+      color:white;text-decoration:none;margin-left:1.2rem;
+      font-weight:500;position:relative;padding-bottom:4px;
+      transition:color .3s ease;
     }
     nav a:hover{color:var(--light-cream);}
-    nav a.active{
-      color:var(--light-cream);
-      font-weight:600;
-    }
+    nav a.active{color:var(--light-cream);font-weight:600;}
     nav a.active::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:100%;
-      height:2px;
-      background:var(--light-cream);
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;
+      background-color:var(--light-cream);
     }
 
-    /* ==== 页面主体内容 ==== */
+    /* ===== 页面主体 ===== */
     main{
       max-width:900px;
       margin:3rem auto;
@@ -89,74 +64,56 @@
     section{margin-top:2rem;line-height:1.7;}
     ul{margin-left:1.5rem;}
     .button{
-      display:inline-block;
-      margin-top:1rem;
-      background:var(--dark-gold);
-      color:white;
-      padding:0.6rem 1.2rem;
-      border-radius:8px;
-      text-decoration:none;
-      transition:background 0.3s ease,transform 0.2s ease;
+      display:inline-block;margin-top:1rem;background:var(--dark-gold);
+      color:white;padding:0.6rem 1.2rem;border-radius:8px;text-decoration:none;
+      transition:background .3s ease,transform .2s ease;
     }
     .button:hover{background:var(--gold);transform:translateY(-2px);}
 
     footer{
-      text-align:center;
-      background:var(--dark-gold);
-      color:white;
-      padding:1rem;
-      margin-top:3rem;
-      font-size:0.9rem;
+      text-align:center;background:var(--dark-gold);color:white;
+      padding:1rem;margin-top:3rem;font-size:0.9rem;
     }
 
-    @media(max-width:600px){
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-      }
+    @media(max-width:768px){
+      header{flex-direction:column;align-items:flex-start;}
       nav{margin-top:0.5rem;}
       main{margin:2rem 1rem;padding:1.5rem;}
     }
   </style>
 </head>
-
 <body>
   <!-- ✅ 动态注入公用页眉 -->
   <div id="site-header"></div>
 
   <script>
   fetch('./header.html?v=20251125')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('site-header').innerHTML = html;
-      const currentPage = location.pathname.split("/").pop() || "index.html";
+    .then(res=>res.text())
+    .then(html=>{
+      document.getElementById('site-header').innerHTML=html;
+      const currentPage=location.pathname.split("/").pop()||"index.html";
       document.querySelectorAll("nav a").forEach(a=>{
         if(a.getAttribute("href").includes(currentPage)) a.classList.add("active");
       });
     })
-    .catch(err => console.error("Header load error:", err));
+    .catch(err=>console.error("Header load error:",err));
   </script>
 
-  <!-- ==== 关于 TerraShield 内容 ==== -->
+  <!-- ==== ABOUT 内容 ==== -->
   <main>
     <h1>About TerraShield</h1>
-    <p>
-      <strong>TerraShield Agriculture Insurance</strong> was founded to strengthen Malaysia’s farming community
+    <p><strong>TerraShield Agriculture Insurance</strong> was founded to strengthen Malaysia’s farming community
       through modern, data‑driven crop protection. We focus on transparent risk assessment and affordable coverage
-      to help farmers achieve long‑term stability and success.
-
-    </p>
+      to help farmers achieve long‑term stability and success.</p>
 
     <section>
-      <h2> Our Mission</h2>
-      <p>
-        To safeguard Malaysia’s agriculture by providing smart, fair, and sustainable insurance solutions
-        that empower farmers and cooperatives to plan confidently.
-      </p>
+      <h2>Our Mission</h2>
+      <p>To safeguard Malaysia’s agriculture by providing smart, fair, and sustainable insurance solutions
+        that empower farmers and cooperatives to plan confidently.</p>
     </section>
 
     <section>
-      <h2> Our Core Values</h2>
+      <h2>Our Core Values</h2>
       <ul>
         <li><strong>Transparency –</strong> Clear premium structure & coverage.</li>
         <li><strong>Innovation –</strong> Using climate and yield data for accuracy.</li>
@@ -169,33 +126,26 @@
       <h2>Our Product Highlights</h2>
       <ul>
         <li>
-          <strong>01. High‑Value Product</strong><br>
-          Crop Line:  covering  rice  and  other  staple  crops.<br>
-          High‑Value  Product  Line:  focusing  on  rubber ,  palm  oil,  and  other  economically  significant  crops.
+          <strong>01. High‑Value Product</strong>
+          <p>Crop Line covers rice and other staple crops. High‑Value Product Line focuses on rubber, palm oil, and other significant crops.</p>
         </li>
         <li>
-          <strong>02. Income Protection</strong><br>
-          Traditional  yield‑based  crop  insurance  protects  only  against  physical  production  losses.<br>
-          ArgoShield  guarantees  a  minimum  income  level  by  covering  both  yield  fluctuations  
-          and  market  price  volatility.
+          <strong>02. Income Protection</strong>
+          <p>Traditional yield‑based crop insurance covers physical losses, while ArgoShield guarantees a minimum income level by covering both yield and price volatility.</p>
         </li>
         <li>
-          <strong>03. Personalized Coverage Level</strong><br>
-          Choose  from  multiple  income  protection  tiers:  50%,  60%,  70%,  80%,  or  90%  of  baseline  income.
+          <strong>03. Personalized Coverage Level</strong>
+          <p>Choose coverage tiers : 50%, 60%, 70%, 80%, or 90% of baseline income.</p>
         </li>
       </ul>
     </section>
 
     <section>
-      <h2> Our Coverage </h2>
-      <p>
-        TerraShield currently provides protection for a wide range of crops across Vegetables, Grains, Fruits, Spices, Root Crops, and High‑value commodities.
-        This includes both the Crop Line and High‑Value Product Line under an annual‑yield protection framework.
-        Try our <a href="index.html" style="color:var(--dark-gold);font-weight:600;">Premium Calculator</a> to explore coverage levels.
-      </p>
+      <h2>Our Coverage</h2>
+      <p>TerraShield currently offers protection for a wide range of crops — Vegetables, Grains, Fruits, Spices, Root Crops, and High‑value commodities.
+        Try our <a href="index.html" style="color:var(--dark-gold);font-weight:600;">Premium Calculator</a> to explore coverage levels.</p>
       <a href="index.html" class="button">Go to Calculator →</a>
     </section>
-
   </main>
 
   <footer>
