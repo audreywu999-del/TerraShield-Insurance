@@ -197,17 +197,14 @@
 </head>
 <body>
 
-<!-- ✅ Header will be loaded here -->
 <div id="site-header"></div>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <h2>Protecting Farmers, Securing Harvests</h2>
   <h3 class="slogan">“Lebih Pasti, Lebih Tenang”</h3>
   <p>Estimate your agricultural insurance premium instantly for your Malaysian crops.</p>
 </section>
 
-<!-- ===== CALCULATOR ===== -->
 <section id="calculator" class="container">
   <h3>Premium Calculator</h3>
   <div class="grid">
@@ -267,7 +264,6 @@
   </div>
 </section>
 
-<!-- ===== ABOUT OVERVIEW ===== -->
 <section id="overview" class="container">
   <h3>About TerraShield</h3>
   <p>
@@ -276,7 +272,6 @@
   </p>
 </section>
 
-<!-- ===== COVERAGE PREVIEW ===== -->
 <section id="coverage-preview" class="container coverage-preview">
   <h3>Crop & Risk Coverage Overview</h3>
   <p>
@@ -286,7 +281,6 @@
   <a class="coverage-btn" href="./coverage.html">View Full Coverage →</a>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact" class="container">
   <h3>Contact Us</h3>
   <p>
@@ -299,25 +293,22 @@
   © 2025 TerraShield Agriculture Insurance | All Rights Reserved
 </footer>
 
-<!-- ✅ 在这里插入加载脚本 -->
+<!-- ✅ Clean single script block -->
 <script>
-fetch('header.html')
+fetch('./header.html?v=20251125')
   .then(res => res.text())
   .then(html => {
     document.getElementById('site-header').innerHTML = html;
 
-    // 🔸 让当前页面导航项高亮
     const currentPage = location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll("nav a").forEach(link => {
       if (link.getAttribute("href").includes(currentPage)) {
         link.classList.add("active");
       }
     });
-  });
-</script>
+  })
+  .catch(err => console.error('Header load error:', err));
 
-
-</script>
 /* === ORIGINAL INSURANCE PREMIUM CALCULATOR === */
 const coverageLimits = {
   "Oil Palm": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
