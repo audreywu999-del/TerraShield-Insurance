@@ -147,15 +147,71 @@ fetch('./header.html?v=20251125')
     document.querySelectorAll("nav a").forEach(a=>{if(a.href.includes(p))a.classList.add("active");});
   }).catch(console.error);
 
-/* Coverage limits (for dropdown) */
-const coverageLimits={
-"Oil Palm":{"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],"Negeri Sembilan":[50,90],
-"Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],"Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],
-"Selangor":[50,70],"Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-"Rubber":{"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],"Negeri Sembilan":[50,90],
-"Pahang":[50,70],"Perak":[50,70],"Perlis":[50,70],"Pulau Pinang":[50,70],"Selangor":[50,70],"Terengganu":[50,70],
-"Sabah":[50,80],"Sarawak":[50,80],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-"Paddy (Rice)":{}, "Cocoa":{}, "Durian":{}, "Coconut":{}, "Pineapple":{}, "Mango":{}
+/* ===== Coverage limits (for dropdown) ===== */
+const coverageLimits = {
+  "Oil Palm": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,70], "Melaka":[50,70],
+    "Negeri Sembilan":[50,90], "Pahang":[50,70], "Perak":[50,90], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Sabah":[50,80], "Sarawak":[50,80], "Selangor":[50,70],
+    "Terengganu":[50,70], "W.P. Kuala Lumpur":[50,70], "W.P Labuan":[50,70],
+    "W.P. Putrajaya":[50,70]
+  },
+
+  "Durian": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,70], "Melaka":[50,70],
+    "Negeri Sembilan":[50,70], "Pahang":[50,70], "Perak":[50,80], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Sabah":[50,80], "Sarawak":[50,80], "Selangor":[50,70],
+    "Terengganu":[50,70], "W.P. Kuala Lumpur":[50,70], "W.P Labuan":[50,70],
+    "W.P. Putrajaya":[50,70]
+  },
+
+  "Rubber": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,70], "Melaka":[50,70],
+    "Negeri Sembilan":[50,90], "Pahang":[50,70], "Perak":[50,70], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Selangor":[50,70], "Terengganu":[50,70],
+    "Sabah":[50,80], "Sarawak":[50,80], "W.P. Kuala Lumpur":[50,70],
+    "W.P Labuan":[50,70], "W.P. Putrajaya":[50,70]
+  },
+
+  "Paddy (Rice)": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,80], "Melaka":[50,90],
+    "Negeri Sembilan":[50,70], "Pahang":[50,80], "Perak":[50,70], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Sabah":[50,80], "Sarawak":[50,80], "Selangor":[50,70],
+    "Terengganu":[50,70], "W.P. Kuala Lumpur":[50,70], "W.P Labuan":[50,70],
+    "W.P. Putrajaya":[50,70]
+  },
+
+  "Pineapple": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,70], "Melaka":[50,90],
+    "Negeri Sembilan":[50,70], "Pahang":[50,80], "Perak":[50,90], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Sabah":[50,80], "Sarawak":[50,80], "Selangor":[50,90],
+    "Terengganu":[50,70], "W.P. Kuala Lumpur":[50,70], "W.P Labuan":[50,70],
+    "W.P. Putrajaya":[50,70]
+  },
+
+  "Cocoa": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,70], "Melaka":[50,70],
+    "Negeri Sembilan":[50,70], "Pahang":[50,70], "Perak":[50,90], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Sabah":[50,80], "Sarawak":[50,80], "Selangor":[50,70],
+    "Terengganu":[50,70], "W.P. Kuala Lumpur":[50,70], "W.P Labuan":[50,70],
+    "W.P. Putrajaya":[50,70]
+  },
+
+  "Coconut": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,70], "Melaka":[50,70],
+    "Negeri Sembilan":[50,70], "Pahang":[50,70], "Perak":[50,90], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Sabah":[50,80], "Sarawak":[50,80], "Selangor":[50,70],
+    "Terengganu":[50,70], "W.P. Kuala Lumpur":[50,70], "W.P Labuan":[50,70],
+    "W.P. Putrajaya":[50,70]
+  },
+
+  "Mango": {
+    "Johor":[50,70], "Kedah":[50,90], "Kelantan":[50,70], "Melaka":[50,90],
+    "Negeri Sembilan":[50,70], "Pahang":[50,70], "Perak":[50,90], "Perlis":[50,70],
+    "Pulau Pinang":[50,70], "Sabah":[50,80], "Sarawak":[50,80], "Selangor":[50,70],
+    "Terengganu":[50,70], "W.P. Kuala Lumpur":[50,70], "W.P Labuan":[50,70],
+    "W.P. Putrajaya":[50,70]
+  }
 };
 
 /* === 全部作物的 Gross Premium 表格 === */
