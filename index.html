@@ -14,204 +14,98 @@
     --bg: #FFFCF7;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-  }
+  * { box-sizing:border-box; margin:0; padding:0; font-family:'Poppins',sans-serif; }
+  html { scroll-behavior:smooth; }
 
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text-dark);
-  }
+  body { background:var(--bg); color:var(--text-dark); }
 
   /* ===== HEADER NAV ===== */
   header {
-    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
-    color: white;
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    background:linear-gradient(90deg,var(--gold),var(--dark-gold));
+    color:white;
+    padding:1rem 1.5rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0; z-index:10;
   }
-
-  .logo-box { display: flex; align-items: center; gap: 10px; }
-  .logo { height: 48px; width: auto; }
-  header h1 { font-size: 1.3rem; letter-spacing: .5px; }
+  header h1 { font-size:1.3rem; }
 
   nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 1.2rem;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 4px;
-    transition: color 0.3s ease;
+    color:white; text-decoration:none; margin-left:1.2rem;
+    font-weight:500; position:relative; padding-bottom:4px;
+    transition:color 0.3s ease;
   }
-
-  nav a:hover { color: var(--light-cream); }
-
-  nav a.active {
-    color: var(--light-cream);
-    font-weight: 600;
-  }
+  nav a:hover { color:var(--light-cream); }
+  nav a.active { color:var(--light-cream); font-weight:600; }
   nav a.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--light-cream);
+    content:""; position:absolute; left:0; bottom:0; width:100%; height:2px;
+    background-color:var(--light-cream);
   }
 
   /* ===== HERO SECTION ===== */
   .hero {
-    background: linear-gradient(to right, #FFF7E0, #FFF8E5);
-    text-align: center;
-    padding: 4rem 1rem 3rem;
+    background:linear-gradient(to right,#FFF7E0,#FFF8E5);
+    text-align:center; padding:4rem 1rem 3rem;
   }
-  .hero h2 {
-    font-size: 2.2rem;
-    color: var(--dark-gold);
-  }
+  .hero h2 { font-size:2.2rem; color:var(--dark-gold); }
   .slogan {
-    font-style: italic;
-    color: var(--dark-gold);
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-top: .3rem;
-    margin-bottom: 1rem;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInSlogan 1.8s ease forwards;
-    animation-delay: .5s;
+    font-style:italic; color:var(--dark-gold); font-size:1.5rem;
+    font-weight:500; margin-top:.3rem; margin-bottom:1rem;
+    opacity:0; transform:translateY(10px);
+    animation:fadeInSlogan 1.8s ease forwards; animation-delay:.5s;
   }
-  @keyframes fadeInSlogan {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeInSlogan { to{opacity:1; transform:translateY(0);} }
 
   .sub-brand {
-  font-size: 0.95rem;
-  color: #8b6b2e;
-  font-style: italic;
-  margin-top: 0.5rem;
-  margin-bottom: 1.2rem;
-  opacity: 0;
-  transform: translateY(8px);
-  animation: fadeInSub 1.6s ease forwards;
-  animation-delay: 0.6s;
-  border-top: 1px solid #f3e1b2;
-  display: inline-block;
-  padding-top: 0.4rem;
-}
+    font-size:0.95rem; color:#8b6b2e; font-style:italic;
+    margin-top:0.5rem; margin-bottom:1.2rem;
+    border-top:1px solid #f3e1b2; display:inline-block; padding-top:0.4rem;
+    opacity:0; transform:translateY(8px);
+    animation:fadeInSub 1.6s ease forwards; animation-delay:0.6s;
+  }
+  @keyframes fadeInSub { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
 
-@keyframes fadeInSub {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-  
   /* ===== CONTAINER BLOCK ===== */
   .container {
-    max-width: 900px;
-    background: white;
-    margin: 3rem auto;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    max-width:900px; background:white; margin:3rem auto; padding:2rem;
+    border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,.08);
   }
+  h3 { text-align:center; color:var(--dark-gold); margin-bottom:1.2rem; }
 
-  h3 {
-    text-align: center;
-    color: var(--dark-gold);
-    margin-bottom: 1.2rem;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-    gap: 1rem;
-  }
-  label { display: block; font-size: .9rem; margin-bottom: .3rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }
+  label { display:block; font-size:.9rem; margin-bottom:.3rem; }
   select, input {
-    width: 100%;
-    padding: .8rem;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+    width:100%; padding:.8rem; border-radius:6px; border:1px solid #ddd;
   }
 
   button {
-    display: block;
-    background: var(--dark-gold);
-    color: white;
-    border: none;
-    margin: 1.5rem auto 0;
-    padding: .9rem 2.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.05rem;
+    display:block; background:var(--dark-gold); color:white; border:none;
+    margin:1.5rem auto 0; padding:.9rem 2.2rem;
+    border-radius:8px; cursor:pointer; font-size:1.05rem;
   }
-  button:hover { background: var(--gold); transform: translateY(-2px); transition:.2s; }
+  button:hover { background:var(--gold); transform:translateY(-2px); transition:.2s; }
 
   #resultBox {
-    display: none;
-    background: var(--light-cream);
-    text-align: center;
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-    color: var(--dark-gold);
-    font-weight: 500;
+    display:none; background:var(--light-cream); text-align:center;
+    margin-top:1rem; padding:1rem; border-radius:8px;
+    color:var(--dark-gold); font-weight:500;
   }
 
   .disclaimer-bar {
-    color: var(--dark-gold);
-    font-family: "Georgia", "Times New Roman", serif;
-    font-style: italic;
-    font-size: 0.70rem;
-    line-height: 1.3;
-    margin-top: 1.5rem;
+    color:var(--dark-gold); font-family:"Georgia","Times New Roman",serif;
+    font-style:italic; font-size:.7rem; line-height:1.3; margin-top:1.5rem;
   }
-
-  .coverage-preview {
-    text-align: center;
-    background: #fff9ee;
-  }
-  .coverage-preview p {
-    max-width: 650px;
-    margin: 0 auto 1.4rem;
-  }
-  .coverage-btn {
-    display: inline-block;
-    background: var(--dark-gold);
-    color: white;
-    padding: .7rem 1.6rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background .3s ease;
-  }
-  .coverage-btn:hover { background: var(--gold); }
 
   footer {
-    text-align: center;
-    background: var(--dark-gold);
-    color: white;
-    padding: 1.2rem;
-    margin-top: 4rem;
-    font-size: .9rem;
+    text-align:center; background:var(--dark-gold); color:white;
+    padding:1.2rem; margin-top:4rem; font-size:.9rem;
   }
 
   @media(max-width:600px){
     header{flex-direction:column;align-items:flex-start;}
-    .container{padding:1.5rem;}
-    .hero h2{font-size:1.7rem;}
+    .container{padding:1.5rem;} .hero h2{font-size:1.7rem;}
   }
 </style>
 </head>
@@ -222,11 +116,7 @@
 <section class="hero">
   <h2>Protecting Farmers, Securing Harvests</h2>
   <h3 class="slogan">“Lebih Pasti, Lebih Tenang”</h3>
-
-  <p class="sub-brand">
-    Powered by <strong>AgroShield Income Guard</strong> — An Income Protection Plan by TerraShield Insurance
-  </p>
-
+  <p class="sub-brand">Powered by <strong>AgroShield Income Guard</strong> — An Income Protection Plan by TerraShield Insurance</p>
   <p>Estimate your agricultural insurance premium instantly for your crops in Malaysia.</p>
 </section>
 
@@ -261,11 +151,6 @@
     </div>
 
     <div>
-      <label for="yield">Expected Yield (t/ha)</label>
-      <input id="yield" type="number" value="5.5" step="0.1" />
-    </div>
-
-    <div>
       <label for="area">Area (ha)</label>
       <input id="area" type="number" value="10" step="0.1" />
     </div>
@@ -283,152 +168,85 @@
 
   <div class="disclaimer-bar">
     <p>
-      The above premiums are calculated at the standard premium rate and are for reference only. 
-      The actual premiums paid must include the premium levy collected by the Insurance Authority.
+       The above premiums are calculated at the standard premium rate and are for reference only.  
+       The actual premiums paid must include the premium levy collected by the Insurance Authority. 
     </p>
   </div>
 </section>
 
-<section id="overview" class="container">
-  <h3>About TerraShield</h3>
-  <p>
-    TerraShield empowers Malaysian farmers with reliable, data-driven insurance tools to make crop protection transparent
-    and affordable for sustainable growth.
-  </p>
-</section>
+<footer>© 2025 TerraShield Agriculture Insurance | All Rights Reserved</footer>
 
-<section id="coverage-preview" class="container coverage-preview">
-  <h3>Crop & Risk Coverage Overview</h3>
-  <p>
-    Learn which crops and risks are included in our Malaysian Agricultural Insurance Program —
-    from rice, durian, and oil palm to protection from floods, droughts, and typhoons.
-  </p>
-  <a class="coverage-btn" href="./coverage.html">View Full Coverage →</a>
-</section>
-
-<section id="contact" class="container">
-  <h3>Contact Us</h3>
-  <p>
-    Email: <a href="mailto:info@terrashield.my">info@terrashield.my</a><br/>
-    Kuala Lumpur, Malaysia
-  </p>
-</section>
-
-<footer>
-  © 2025 TerraShield Agriculture Insurance | All Rights Reserved
-</footer>
-
-<!-- ✅ Clean single script block -->
 <script>
+/* ===== Shared Header Load ===== */
 fetch('./header.html?v=20251125')
   .then(res => res.text())
   .then(html => {
     document.getElementById('site-header').innerHTML = html;
-
     const currentPage = location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll("nav a").forEach(link => {
-      if (link.getAttribute("href").includes(currentPage)) {
-        link.classList.add("active");
-      }
+      if (link.getAttribute("href").includes(currentPage)) link.classList.add("active");
     });
-  })
-  .catch(err => console.error('Header load error:', err));
+  }).catch(err => console.error('Header load error:', err));
 
-/* === ORIGINAL INSURANCE PREMIUM CALCULATOR === */
+/* ===== Coverage Range (for dropdown) ===== */
 const coverageLimits = {
-  "Oil Palm": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
+  "Oil Palm":{"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
     "Negeri Sembilan":[50,90],"Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],
     "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
     "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-  "Durian": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
-    "Negeri Sembilan":[50,70],"Pahang":[50,70],"Perak":[50,80],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-  "Rubber": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
+  "Rubber":{"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
     "Negeri Sembilan":[50,90],"Pahang":[50,70],"Perak":[50,70],"Perlis":[50,70],
     "Pulau Pinang":[50,70],"Selangor":[50,70],"Terengganu":[50,70],"Sabah":[50,80],
-    "Sarawak":[50,80],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-  "Paddy (Rice)": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,80],"Melaka":[50,90],
-    "Negeri Sembilan":[50,70],"Pahang":[50,80],"Perak":[50,70],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-  "Pineapple": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,90],
-    "Negeri Sembilan":[50,70],"Pahang":[50,80],"Perak":[50,90],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,90],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-  "Cocoa": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
-    "Negeri Sembilan":[50,70],"Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-  "Coconut": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,70],
-    "Negeri Sembilan":[50,70],"Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]},
-  "Mango": {"Johor":[50,70],"Kedah":[50,90],"Kelantan":[50,70],"Melaka":[50,90],
-    "Negeri Sembilan":[50,70],"Pahang":[50,70],"Perak":[50,90],"Perlis":[50,70],
-    "Pulau Pinang":[50,70],"Sabah":[50,80],"Sarawak":[50,80],"Selangor":[50,70],
-    "Terengganu":[50,70],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]}
+    "Sarawak":[50,80],"W.P. Kuala Lumpur":[50,70],"W.P Labuan":[50,70],"W.P. Putrajaya":[50,70]}
 };
 
-function updateCoverageOptions() {
-  const state = document.getElementById("state").value;
-  const crop = document.getElementById("crop").value;
-  const coverageSelect = document.getElementById("coverage");
-  coverageSelect.innerHTML = "";
+/* ===== Your Gross Premium Table —— From Your Spreadsheet ===== */
+const grossPremiumTable = {
+  "Rubber": {"Johor":488.44,"Kedah":472.21,"Kelantan":517.80,"Melaka":485.34,"Negeri Sembilan":455.97,"Pahang":517.80,"Perak":501.57,"Perlis":485.34,"Pulau Pinang":514.70,"Sabah":547.17,"Sarawak":530.94,"Selangor":501.57,"Terengganu":488.44,"W.P. Kuala Lumpur":514.70,"W.P Labuan":514.70,"W.P. Putrajaya":514.70},
+  "Oil Palm": {"Johor":2409.15,"Kedah":2329.09,"Kelantan":2553.99,"Melaka":2393.86,"Negeri Sembilan":2249.02,"Pahang":2553.99,"Perak":2329.09,"Perlis":2393.86,"Pulau Pinang":2538.69,"Sabah":2698.82,"Sarawak":2618.76,"Selangor":2473.92,"Terengganu":2409.15,"W.P. Kuala Lumpur":2538.69,"W.P Labuan":2538.69,"W.P. Putrajaya":2538.69}
+  /* 你可以继续扩展其他作物 (Paddy, Cocoa, Durian, Coconut, Mango...) */
+};
 
-  if (state && crop && coverageLimits[crop] && coverageLimits[crop][state]) {
-    const [min, max] = coverageLimits[crop][state];
-    for (let level = min; level <= max; level += 5) {
-      const opt = document.createElement("option");
-      opt.value = level / 100;
-      opt.textContent = level + "%";
-      coverageSelect.appendChild(opt);
+/* ===== Update Coverage Options ===== */
+function updateCoverageOptions(){
+  const state=document.getElementById("state").value;
+  const crop=document.getElementById("crop").value;
+  const coverage=document.getElementById("coverage");
+  coverage.innerHTML="";
+  if(state&&crop&&coverageLimits[crop]&&coverageLimits[crop][state]){
+    const [min,max]=coverageLimits[crop][state];
+    for(let i=min;i<=max;i+=5){
+      const opt=document.createElement("option");
+      opt.value=i/100; opt.textContent=i+"%"; coverage.appendChild(opt);
     }
-  } else {
-    const opt = document.createElement("option");
-    opt.textContent = "Select crop and state";
-    coverageSelect.appendChild(opt);
+  }else{
+    const opt=document.createElement("option");
+    opt.textContent="Select crop and state"; coverage.appendChild(opt);
   }
 }
 
-function calculatePremium() {
-  const crop = document.getElementById("crop").value;
-  const state = document.getElementById("state").value;
-  const yieldVal = parseFloat(document.getElementById("yield").value);
-  const area = parseFloat(document.getElementById("area").value);
-  const coverage = parseFloat(document.getElementById("coverage").value);
-  if (!crop || !state || !yieldVal || !area || !coverage) {
-    alert("Please fill all fields including crop and state.");
-    return;
-  }
+/* ===== CALCULATE PREMIUM ===== */
+function calculatePremium(){
+  const crop=document.getElementById("crop").value;
+  const state=document.getElementById("state").value;
+  const area=parseFloat(document.getElementById("area").value);
+  const coverage=parseFloat(document.getElementById("coverage").value);
+  if(!crop||!state||!area||!coverage){alert("Please fill all fields."); return;}
 
-  const priceByCrop = {
-    "Oil Palm":900,
-    "Rubber":7000,
-    "Paddy (Rice)":1500,
-    "Cocoa":9000,
-    "Durian":5000,
-    "Coconut":1400,
-    "Pineapple":1200,
-    "Mango":2500
-  };
+  const cropData=grossPremiumTable[crop];
+  if(!cropData||!cropData[state]){alert("No premium data for this crop/state.");return;}
 
-  const price = priceByCrop[crop] || 1500;
-  const volatility = 0.15;
-  const pureRate = Math.max(0.01, volatility * (1 - coverage) * 3.0);
-  const expenses = 0.12, profit = 0.15;
-  const grossRate = pureRate / (1 - expenses - profit);
-  const liability = yieldVal * price * area * coverage;
-  const premium = liability * grossRate;
+  const gross=cropData[state];
+  const premium=gross*coverage;
 
-  const result = document.getElementById("resultBox");
-  result.style.display = "block";
-  result.innerHTML = `
+  const result=document.getElementById("resultBox");
+  result.style.display="block";
+  result.innerHTML=`
     <strong>${crop}</strong> (${state})<br>
-    Coverage: ${(coverage * 100).toFixed(0)}%<br>
-    Expected Liability: RM ${liability.toLocaleString()}<br>
-    Gross Premium Rate: ${(grossRate * 100).toFixed(2)}%<br>
-    💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>
+    Area: ${area} ha<br>
+    Coverage Level: ${(coverage*100).toFixed(0)}%<br>
+    Gross Premium: RM ${gross.toLocaleString()}<br>
+    💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>
   `;
 }
 </script>
