@@ -8,162 +8,141 @@
 
   <style>
     :root {
-      --gold: #E3A008;
-      --dark-gold: #D97706;
-      --light-cream: #FFF8E5;
-      --text-dark: #2C2A29;
-      --bg: #FFFCF7;
+      --gold:#E3A008;
+      --dark-gold:#D97706;
+      --light-cream:#FFF8E5;
+      --text-dark:#2C2A29;
+      --bg:#FFFCF7;
     }
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:"Poppins",sans-serif;
     }
 
+    html { scroll-behavior:smooth; }
     body {
-      background: var(--bg);
-      color: var(--text-dark);
+      background:var(--bg);
+      color:var(--text-dark);
     }
 
-    /* ======= HEADER ======= */
+    /* ==== Header 样式（与 index 保持一致） ==== */
     header {
-      background: linear-gradient(90deg, var(--gold), var(--dark-gold));
-      color: white;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background:linear-gradient(90deg,var(--gold),var(--dark-gold));
+      color:white;
+      padding:1rem 1.5rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .logo-box{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo{height:48px;width:auto;}
+    header h1{
+      font-size:1.3rem;
+      letter-spacing:0.5px;
+      margin:0;
+    }
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:1.2rem;
+      font-weight:500;
+      position:relative;
+      padding-bottom:4px;
+      transition:color 0.3s ease;
+    }
+    nav a:hover{color:var(--light-cream);}
+    nav a.active{
+      color:var(--light-cream);
+      font-weight:600;
+    }
+    nav a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:2px;
+      background:var(--light-cream);
     }
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    /* ==== 页面主体内容 ==== */
+    main{
+      max-width:900px;
+      margin:3rem auto;
+      background:white;
+      padding:2.5rem;
+      border-radius:12px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.08);
     }
-    .logo {
-      height: 48px;
-      width: auto;
+    h1,h2{color:var(--dark-gold);}
+    h1{text-align:center;margin-bottom:1rem;}
+    section{margin-top:2rem;line-height:1.7;}
+    ul{margin-left:1.5rem;}
+    .button{
+      display:inline-block;
+      margin-top:1rem;
+      background:var(--dark-gold);
+      color:white;
+      padding:0.6rem 1.2rem;
+      border-radius:8px;
+      text-decoration:none;
+      transition:background 0.3s ease,transform 0.2s ease;
     }
-    header h1 {
-      font-size: 1.3rem;
-      letter-spacing: 0.5px;
-      margin: 0;
+    .button:hover{background:var(--gold);transform:translateY(-2px);}
+
+    footer{
+      text-align:center;
+      background:var(--dark-gold);
+      color:white;
+      padding:1rem;
+      margin-top:3rem;
+      font-size:0.9rem;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.2rem;
-      font-weight: 500;
-      position: relative;
-      padding-bottom: 4px;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: var(--light-cream); }
-
-    nav a.active {
-      color: var(--light-cream);
-      font-weight: 600;
-    }
-    nav a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--light-cream);
-    }
-
-    /* ======= PAGE CONTENT ======= */
-    main {
-      max-width: 900px;
-      margin: 3rem auto;
-      background: white;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-    }
-
-    h1, h2 { color: var(--dark-gold); }
-    h1 { text-align: center; margin-bottom: 1rem; }
-    section { margin-top: 2rem; line-height: 1.7; }
-    ul { margin-left: 1.5rem; }
-
-    .button {
-      display: inline-block;
-      margin-top: 1rem;
-      background: var(--dark-gold);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .button:hover {
-      background: var(--gold);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      text-align: center;
-      background: var(--dark-gold);
-      color: white;
-      padding: 1rem;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
+    @media(max-width:600px){
+      header{
+        flex-direction:column;
+        align-items:flex-start;
       }
-      nav {
-        margin-top: 0.5rem;
-      }
-      main {
-        margin: 2rem 1rem;
-        padding: 1.5rem;
-      }
+      nav{margin-top:0.5rem;}
+      main{margin:2rem 1rem;padding:1.5rem;}
     }
   </style>
 </head>
 
 <body>
-
-  <!-- ✅ Header injected here -->
+  <!-- ✅ 动态注入公用页眉 -->
   <div id="site-header"></div>
 
-  <!-- ✅ Load shared header -->
   <script>
   fetch('./header.html?v=20251125')
     .then(res => res.text())
     .then(html => {
       document.getElementById('site-header').innerHTML = html;
-
-      // Highlight the active menu item based on current file name
-      const currentPage = location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('nav a').forEach(link => {
-        if (link.getAttribute('href').includes(currentPage)) {
-          link.classList.add('active');
-        }
+      const currentPage = location.pathname.split("/").pop() || "index.html";
+      document.querySelectorAll("nav a").forEach(a=>{
+        if(a.getAttribute("href").includes(currentPage)) a.classList.add("active");
       });
     })
-    .catch(err => console.error('Header load error:', err));
+    .catch(err => console.error("Header load error:", err));
   </script>
 
-  <!-- ======= ABOUT PAGE CONTENT ======= -->
+  <!-- ==== 关于 TerraShield 内容 ==== -->
   <main>
     <h1>About TerraShield</h1>
     <p>
       <strong>TerraShield Agriculture Insurance</strong> was founded to strengthen Malaysia’s farming community
-      through modern, data‑driven crop protection. We focus on risk transparency and affordable coverage
+      through modern, data‑driven crop protection. We focus on transparent risk assessment and affordable coverage
       to help farmers achieve long‑term stability and success.
     </p>
 
@@ -198,6 +177,5 @@
   <footer>
     © 2025 TerraShield Agriculture Insurance | All Rights Reserved
   </footer>
-
 </body>
 </html>
