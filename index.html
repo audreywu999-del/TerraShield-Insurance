@@ -102,7 +102,7 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
       </select>
     </div>
     <div>
-      <label for="coverage">Coverage Level (= Trigger + 20%)</label>
+      <label for="coverage">Coverage Level</label>
       <input id="coverage" type="text" readonly placeholder="Auto‑calculated" />
     </div>
   </div>
@@ -247,36 +247,68 @@ const grossPremiumTable={
 "Perak":2490,"Perlis":2470,"Pulau Pinang":2550,"Sabah":2650,"Sarawak":2630,"Selangor":2500,
 "Terengganu":2480,"W.P. Kuala Lumpur":2550,"W.P Labuan":2550,"W.P. Putrajaya":2550}
 };
-
+/* === 更新 Trigger Level 下拉选项 === */
 function updateCoverageOptions(){
-  const s=document.getElementById("state").value;
-  const c=document.getElementById("crop").value;
-  const el=document.getElementById("coverage");
-  el.innerHTML="";
-  if(s&&c&&coverageLimits[c]&&coverageLimits[c][s]){
-    const [min,max]=coverageLimits[c][s];
+  const s = document.getElementById("state").value;
+  const c = document.getElementById("crop").value;
+  const triggerSelect = document.getElementById("trigger");
+
+  triggerSelect.innerHTML = "";
+
+  if(s && c && coverageLimits[c] && coverageLimits[c][s]){
+    const [min,max] = coverageLimits[c][s];
     for(let i=min;i<=max;i+=5){
-      const o=document.createElement("option");
-      o.value=i/100;o.textContent=i+"%";el.appendChild(o);
+      const o = document.createElement("option");
+      o.value = i / 100;
+      o.textContent = i + "%";
+      triggerSelect.appendChild(o);
     }
-  }else{const o=document.createElement("option");o.textContent="Select crop and state";el.appendChild(o);}
+  } else {
+    const o=document.createElement("option");
+    o.textContent="Select crop and state first";
+    triggerSelect.appendChild(o);
+  }
+
+  // 清空 Coverage Level input
+  document.getElementById("coverage").value="";
 }
 
+/* === 当 Trigger Level 改变时自动计算 Coverage Level (Trigger +20%) === */
+function updateCoverageLevel(){
+  const triggerVal = parseFloat(document.getElementById("trigger").value);
+  if(!isNaN(triggerVal)){
+    const coverage = Math.min(triggerVal + 0.20, 1.0); // 不超过100%
+    document.getElementById("coverage").value = (coverage*100).toFixed(0) + "%";
+    document.getElementById("coverage").dataset.value = coverage;
+  } else {
+    document.getElementById("coverage").value = "";
+    document.getElementById("coverage").dataset.value = "";
+  }
+}
+/* === 核算保费 === */
 function calculatePremium(){
-  const crop=document.getElementById("crop").value;
-  const state=document.getElementById("state").value;
+  const crop = document.getElementById("crop").value;
+  const state = document.getElementById("state").value;
   const area = parseFloat(document.getElementById("area").value);
-  const coverage=parseFloat(document.getElementById("coverage").value);
-  if(!crop||!state||!coverage){alert("Please fill all fields.");return;}
-  const gross=grossPremiumTable[crop]?.[state];
+  const trigger = parseFloat(document.getElementById("trigger").value);
+  const coverage = parseFloat(document.getElementById("coverage").dataset.value);
+  
+  if(!crop || !state || isNaN(trigger) || isNaN(coverage)){
+    alert("Please fill all required fields.");return;
+  }
+
+  const gross = grossPremiumTable[crop]?.[state];
   if(!gross){alert("No Gross Premium data for this crop/state.");return;}
-  // ✅ Multiply gross × coverage × area
+
   const premiumPerHa = gross * coverage;
-  const totalPremium = premiumPerHa * area
-  const r=document.getElementById("resultBox");
-  r.style.display="block";
-  r.innerHTML=`
+  const totalPremium = premiumPerHa * area;
+
+  const r = document.getElementById("resultBox");
+  r.style.display = "block";
+  r.innerHTML = `
     <strong>${crop}</strong> (${state})<br>
+    Trigger Level: ${(trigger*100).toFixed(0)}%<br>
+    Coverage Level (Trigger + 20%): ${(coverage*100).toFixed(0)}%<br>
     💰 Estimated Premium (per ha): <strong>RM ${premiumPerHa.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
     💵 Total Premium for ${area} ha: <strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>
   `;
