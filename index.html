@@ -140,6 +140,10 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   cursor: pointer;
   font-size: 0.95rem;
 }
+
+.hidden {
+  display: none !important;
+}
   
 .promo-input-row {
   display: flex;
@@ -187,7 +191,7 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
 }
 
 .promo-edit.active {
-  max-height: 200px; /* 自动展开高度，可根据内容调整 */
+  max-height: 300px; /* 自动展开高度，可根据内容调整 */
   opacity: 1;
   transform: translateY(0);
 }
@@ -274,7 +278,7 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   </div>
 
   <!-- 编辑模式 -->
-  <div id="promoEdit" class="promo-edit" style="display:none;">
+  <div id="promoEdit" class="promo-edit">
     <div class="promo-edit-header">
       <span>🎟️ Enter your Promo Code</span>
       <button class="promo-cancel" onclick="togglePromoEdit(false)">Cancel</button>
@@ -462,10 +466,19 @@ const promoCodes = {
 
 let activePromo = { code: null, rate: 0 };
 
-function togglePromoEdit(isEdit){
-  document.getElementById("promoDisplay").style.display = isEdit ? "none" : "flex";
-  document.getElementById("promoEdit").style.display = isEdit ? "block" : "none";
+function togglePromoEdit(isEdit) {
+  const display = document.getElementById("promoDisplay");
+  const edit = document.getElementById("promoEdit");
+
+  if (isEdit) {
+    display.classList.add("hidden");
+    edit.classList.add("active");
+  } else {
+    display.classList.remove("hidden");
+    edit.classList.remove("active");
+  }
 }
+
 
 function applyPromo(){
   const code = document.getElementById("promoInput").value.trim().toUpperCase();
