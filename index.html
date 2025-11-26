@@ -523,12 +523,12 @@ function applyPromo(){
   }
   if(promoCodes[code]){
     activePromo = { code, rate: promoCodes[code] };
-    message.textContent = `✅ Promo code ${code} applied (${(promoCodes[code]*100).toFixed(0)}% off)`;
+    message.textContent = ` Promo code ${code} applied (${(promoCodes[code]*100).toFixed(0)}% off)`;
     message.style.color = "green";
     displayText.textContent = `${(promoCodes[code]*100).toFixed(0)}% off first-year premium. Promo code ${code} applied.`;
     togglePromoEdit(false);
   }else{
-    message.textContent = "❌ Invalid promo code.";
+    message.textContent = " Invalid promo code.";
     message.style.color = "red";
     activePromo = { code:null, rate:0 };
   }
@@ -582,9 +582,9 @@ function calculatePremium(){
     <strong>${crop}</strong> (${state})<br>
     Trigger Level: ${(trigger*100).toFixed(0)}%<br>
     Coverage Level (Trigger + 20%): ${(coverage*100).toFixed(0)}%<br>
-    💰 Estimated Premium (per ha): <strong>RM ${premiumPerHa.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
+     Estimated Premium (per ha): <strong>RM ${premiumPerHa.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
     <div class="premium-price-box" style="margin-top:0.4rem;">
-      💵 Total Premium for ${area} ha: 
+     Total Premium for ${area} ha: 
       ${discountRate>0
         ? `<span class="old-price">RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</span>
            <span class="new-price">→ RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
