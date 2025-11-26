@@ -295,6 +295,66 @@ footer {
   .hero h2 { font-size: 1.7rem; }
   .disclaimer-bar p { font-size: 0.8rem; }
 }
+/* ===== Promo Edit / Input layout ===== */
+.promo-edit {
+  padding: 0.9rem 1.2rem;
+  border-top: 1px solid #f0e3c4;
+  border-radius: 8px;
+  background: #fffdf8;
+  margin-top: 0.8rem;
+}
+
+.promo-edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--dark-gold);
+  font-weight: 600;
+}
+
+.promo-input-row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.promo-input-row input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+}
+
+.promo-input-row input:focus {
+  outline: none;
+  border-color: var(--dark-gold);
+  box-shadow: 0 0 3px rgba(217, 119, 6, 0.3);
+}
+
+.promo-apply,
+.promo-cancel {
+  background: var(--dark-gold);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.promo-apply:hover,
+.promo-cancel:hover {
+  background: var(--gold);
+}
+
+.promo-message {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
 </style>
   
 </head>
