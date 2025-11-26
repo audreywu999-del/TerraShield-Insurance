@@ -333,7 +333,7 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
 /* 保持整块卡片居中，但文字左对齐 */
 #overview,
 #coverage-preview {
-  max-width: 700px;       /* 依然限制宽度，防止超宽 */
+  max-width: 900px;       /* 依然限制宽度，防止超宽 */
   margin: 0 auto 3rem;    /* 居中卡片 */
   text-align: left;       /* 文字左对齐（重点） */
   padding: 2rem 3rem;     /* 给左右一点呼吸空间 */
@@ -363,6 +363,17 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   display: inline-block;
   margin: 0 auto;
   text-align: center;
+}
+
+/* === Make About & Coverage same width as Promo Card === */
+#overview,
+#coverage-preview {
+  max-width: 900px;     /* ✅ 与 promo-card 一致 */
+  margin: 0 auto 3rem;  /* 居中 */
+  text-align: left;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-sizing: border-box;
 }
   
 </style>
