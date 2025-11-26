@@ -295,10 +295,20 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
 
 /* === 左对齐 About & Coverage 文字 === */
 #overview,
+#overview,
 #coverage-preview {
-  text-align: left; /* ✅ 改为左对齐 */
+  text-align: left;
+  max-width: 100%;      /* 让容器不限制宽度 */
+  width: 100%;          /* 占满父级 */
+  margin: 0;            /* 去掉自动居中 */
+  padding-left: 0;      /* 根据需要可加或不加内边距 */
 }
-
+#overview p,
+#coverage-preview p {
+  margin-left: 0;
+  margin-right: 0;
+}
+  
 /* 标题继续居中，仅正文左对齐 */
 #overview h3,
 #coverage-preview h3 {
@@ -312,10 +322,10 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   margin-right: 0;
 }
 
-/* ✅ 让 View Full Coverage 按钮始终居中 */
+/* ✅ 按钮改为 inline-block，使其自动宽度并保持居中 */
 #coverage-preview .coverage-btn {
-  display: block;
-  margin: 1rem auto 0; /* 居中按钮 */
+  display: inline-block;
+  margin: 1rem auto 0;
   text-align: center;
 }
   
