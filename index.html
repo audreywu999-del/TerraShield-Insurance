@@ -122,30 +122,36 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   background: var(--dark-gold);
   color: #fff;
 }
-/* 更整齐的编辑模式头部 */
+/* ==== 修正版：Promo 编辑页标题完美对齐 ==== */
 .promo-edit-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;      /* 垂直居中 */
+  align-items: center;       /* 大体居中 */
   font-weight: 600;
   color: #4b3b08;
   margin-bottom: 0.9rem;
   letter-spacing: 0.3px;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
+/* 左边“Enter your Promo Code”部分 */
 .promo-edit-header span {
-  display: flex;
-  align-items: center;      /* 让 emoji 与文字同中线 */
+  display: inline-flex;
+  align-items: center;       /* emoji 与文字垂直居中 */
   gap: 8px;
+  position: relative;
+  top: 1px;                  /* 👈 整组微下调 1px，使左侧与右边Cancel处于一条线上 */
 }
 
+/* 调整 emoji 与文字比例和位置 */
 .promo-edit-header span::before {
   content: "🎟️";
-  font-size: 1.1rem;
-  transform: translateY(0); /* 取消下移 */
+  display: inline-block;
+  font-size: 1.2rem;
+  transform: translateY(2px);  /* 👈 emoji 下移一点 */
 }
 
+/* 右边 Cancel 按钮微调高度匹配 */
 .promo-cancel {
   background: none;
   border: none;
@@ -153,7 +159,9 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   font-weight: 700;
   cursor: pointer;
   font-size: 0.95rem;
-  line-height: 1.3;         /* 与左侧文字行高一致 */
+  line-height: 1.2;
+  position: relative;
+  top: 1px;                  /* 👈 向下微调 1px，与左侧文字居中线齐平 */
 }
 
 .hidden {
@@ -304,7 +312,7 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   <div id="promoNotice" style="display:none;background:#e8f9ee;border-left:5px solid #16a34a;
     border-radius:6px;padding:0.75rem 1rem;margin-top:1.2rem;
     color:#166534;font-weight:500;animation:fadeInPromo 0.5s ease;">
-    <span style="margin-right:6px;">🎟️</span>
+    <span style="margin-right:6px;"></span>
     <span id="promoNoticeText"></span>
   </div>
   <div id="resultBox"></div>
@@ -597,13 +605,6 @@ function calculatePremium(){
     promoNotice.style.opacity = "1";
     promoNotice.style.transition = "opacity 1s ease";
   
-    // 3 秒后淡出并隐藏
-    clearTimeout(promoNotice._hideTimer);
-    promoNotice._hideTimer = setTimeout(() => {
-      promoNotice.style.opacity = "0";
-      setTimeout(() => (promoNotice.style.display = "none"), 1000);
-    }, 3000);
-  } else {
     // 没有活动折扣：隐藏提示条
     promoNotice.style.display = "none";
     promoNoticeText.textContent = "";
