@@ -68,29 +68,6 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   <p>Estimate your agricultural insurance premium instantly for your crops in Malaysia.</p>
 </section>
 
-<!-- ✅ FWD‑style Promo Section -->
-<div id="promoContainer" style="border:1px solid #F3D9A6;border-radius:8px;padding:1rem;background:#FFF8E5;margin-top:1rem;">
-  <!-- 展示模式 -->
-  <div id="promoDisplay" style="display:flex;justify-content:space-between;align-items:center;">
-    <div>
-      <span style="font-weight:600;">No promo code applied.</span>
-    </div>
-    <button onclick="togglePromoEdit(true)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Edit</button>
-  </div>
-
-  <!-- 编辑模式 -->
-  <div id="promoEdit" style="display:none;">
-    <div style="font-weight:600;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-      <span>🎟️ Edit promo code</span>
-      <button onclick="togglePromoEdit(false)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Cancel</button>
-    </div>
-    <div style="display:flex;gap:0.5rem;">
-      <input id="promoInput" placeholder="e.g. TerraShield" style="flex:1;padding:0.7rem 1rem;border-radius:6px;border:1px solid #ccc;text-transform:uppercase;font-weight:600;" />
-      <button onclick="applyPromo()" style="background:#D97706;color:#fff;border:none;border-radius:6px;padding:0.7rem 1.5rem;cursor:pointer;font-weight:600;">Apply</button>
-    </div>
-    <div id="promoMessage" style="margin-top:0.4rem;font-size:0.85rem;color:#8b6b2e;"></div>
-  </div>
-</div>
   
 <section id="calculator" class="container">
   <h3>Premium Calculator</h3>
@@ -150,7 +127,36 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   </div>
 
 </section>
+<!-- ✅ FWD‑style Promo Section -->
+<div id="promoContainer" 
+     style="border:1px solid #F3D9A6;
+            border-radius:8px;
+            padding:1.2rem;
+            background:#FFF7E8;
+            margin-top:2rem;
+            box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+  <!-- 展示模式 -->
+  <div id="promoDisplay" style="display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <span style="font-weight:600;">No promo code applied.</span>
+    </div>
+    <button onclick="togglePromoEdit(true)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Edit</button>
+  </div>
 
+  <!-- 编辑模式 -->
+  <div id="promoEdit" style="display:none;">
+    <div style="font-weight:600;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+      <span>🎟️ Edit promo code</span>
+      <button onclick="togglePromoEdit(false)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Cancel</button>
+    </div>
+    <div style="display:flex;gap:0.5rem;">
+      <input id="promoInput" placeholder="e.g. TerraShield" style="flex:1;padding:0.7rem 1rem;border-radius:6px;border:1px solid #ccc;text-transform:uppercase;font-weight:600;" />
+      <button onclick="applyPromo()" style="background:#D97706;color:#fff;border:none;border-radius:6px;padding:0.7rem 1.5rem;cursor:pointer;font-weight:600;">Apply</button>
+    </div>
+    <div id="promoMessage" style="margin-top:0.4rem;font-size:0.85rem;color:#8b6b2e;"></div>
+  </div>
+</div>
+  
 <!-- ⬇️ 放在 Footer 上方 -->
 <section id="overview" class="container">
   <h3>About TerraShield</h3>
