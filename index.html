@@ -252,6 +252,29 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   font-size: 0.9rem;
   margin-top: 0.5rem;
 }
+
+/* ==== Better paragraph spacing & section breathing ==== */
+.container p {
+  line-height: 1.7;            /* ✅ 提升行距 */
+  font-size: 1rem;             /* 统一字体大小 */
+  color: #2c2a29;              /* 略深对比更清晰 */
+  margin-bottom: 1.2rem;       /* 段落间留白 */
+}
+
+/* ✅ 提高容器上下留白，避免区块贴太紧 */
+.container {
+  padding: 2.5rem 2rem;        /* 增加内边距（上下更宽） */
+  margin: 3rem auto 3.5rem;    /* 区块外部间距 */
+}
+
+/* ✅ 限制说明区段文字宽度、加强可读性 */
+.coverage-preview p,
+#overview p {
+  max-width: 700px;            /* 合适阅读宽度 */
+  margin: 0 auto 1.6rem;       /* 居中 + 下方留白 */
+  line-height: 1.75;           /* 行距再放松 */
+}
+
 </style>
 </head>
 
