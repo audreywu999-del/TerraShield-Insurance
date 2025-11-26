@@ -167,6 +167,23 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   font-size: 0.85rem;
   color: #8b6b2e;
 }
+/* === Smooth Slide Animation === */
+.promo-edit {
+  border-top: 1px solid #f1e1bd;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.promo-edit.active {
+  max-height: 200px; /* 自动展开高度，可根据内容调整 */
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 
