@@ -51,6 +51,10 @@ button:hover{background:var(--gold);transform:translateY(-2px);transition:.2s;}
 .coverage-btn:hover{background:var(--gold);}
 footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;margin-top:4rem;font-size:.9rem;}
 @media(max-width:600px){header{flex-direction:column;align-items:flex-start;}.container{padding:1.5rem;}.hero h2{font-size:1.7rem;}}
+@keyframes fadeInPromo {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 
@@ -64,6 +68,30 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   <p>Estimate your agricultural insurance premium instantly for your crops in Malaysia.</p>
 </section>
 
+<!-- ✅ FWD‑style Promo Section -->
+<div id="promoContainer" style="border:1px solid #F3D9A6;border-radius:8px;padding:1rem;background:#FFF8E5;margin-top:1rem;">
+  <!-- 展示模式 -->
+  <div id="promoDisplay" style="display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <span style="font-weight:600;">No promo code applied.</span>
+    </div>
+    <button onclick="togglePromoEdit(true)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Edit</button>
+  </div>
+
+  <!-- 编辑模式 -->
+  <div id="promoEdit" style="display:none;">
+    <div style="font-weight:600;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+      <span>🎟️ Edit promo code</span>
+      <button onclick="togglePromoEdit(false)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Cancel</button>
+    </div>
+    <div style="display:flex;gap:0.5rem;">
+      <input id="promoInput" placeholder="e.g. FWD10" style="flex:1;padding:0.7rem 1rem;border-radius:6px;border:1px solid #ccc;text-transform:uppercase;font-weight:600;" />
+      <button onclick="applyPromo()" style="background:#D97706;color:#fff;border:none;border-radius:6px;padding:0.7rem 1.5rem;cursor:pointer;font-weight:600;">Apply</button>
+    </div>
+    <div id="promoMessage" style="margin-top:0.4rem;font-size:0.85rem;color:#8b6b2e;"></div>
+  </div>
+</div>
+  
 <section id="calculator" class="container">
   <h3>Premium Calculator</h3>
   <div class="grid">
@@ -107,6 +135,12 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
     </div>
   </div>
   <button onclick="calculatePremium()">Calculate</button>
+  <div id="promoNotice" style="display:none;background:#e8f9ee;border-left:5px solid #16a34a;
+    border-radius:6px;padding:0.75rem 1rem;margin-top:1.2rem;
+    color:#166534;font-weight:500;animation:fadeInPromo 0.5s ease;">
+    <span style="margin-right:6px;">🎟️</span>
+    <span id="promoNoticeText"></span>
+  </div>
   <div id="resultBox"></div>
   <div class="disclaimer-bar">
   <p>
@@ -285,6 +319,37 @@ function updateCoverageLevel(){
     document.getElementById("coverage").dataset.value = "";
   }
 }
+/* === Promo Code 列表 === */
+const promoCodes = {
+  "WELCOME": 0.3,
+};
+
+let activePromo = { code: null, rate: 0 };
+
+function togglePromoEdit(isEdit){
+  document.getElementById("promoDisplay").style.display = isEdit ? "none" : "flex";
+  document.getElementById("promoEdit").style.display = isEdit ? "block" : "none";
+}
+
+function applyPromo(){
+  const code = document.getElementById("promoInput").value.trim().toUpperCase();
+  const message = document.getElementById("promoMessage");
+  const displayText = document.querySelector("#promoDisplay span");
+  if(!code){
+    message.textContent = "Please enter a promo code."; message.style.color = "red"; return;
+  }
+  if(promoCodes[code]){
+    activePromo = { code, rate: promoCodes[code] };
+    message.textContent = `✅ Promo code ${code} applied (${(promoCodes[code]*100).toFixed(0)}% off)`;
+    message.style.color = "green";
+    displayText.textContent = `${(promoCodes[code]*100).toFixed(0)}% off first-year premium. Promo code ${code} applied.`;
+    togglePromoEdit(false);
+  }else{
+    message.textContent = "❌ Invalid promo code.";
+    message.style.color = "red";
+    activePromo = { code:null, rate:0 };
+  }
+}
 /* === 核算保费 === */
 function calculatePremium(){
   const crop = document.getElementById("crop").value;
@@ -302,6 +367,31 @@ function calculatePremium(){
 
   const premiumPerHa = gross * coverage;
   const totalPremium = premiumPerHa * area;
+  const discountRate = activePromo.rate;
+  const discountedTotal = totalPremium * (1 - discountRate);
+
+  // ✅ 更新提示条
+  const promoNotice = document.getElementById("promoNotice");
+  const promoNoticeText = document.getElementById("promoNoticeText");
+  
+  if (discountRate > 0) {
+    promoNoticeText.innerHTML =
+      `✔ Promo code <strong>${activePromo.code}</strong> applied — ${(discountRate*100).toFixed(0)}% off total premium.`;
+    promoNotice.style.display = "block";
+    promoNotice.style.opacity = "1";
+    promoNotice.style.transition = "opacity 1s ease";
+  
+    // 3 秒后淡出并隐藏
+    clearTimeout(promoNotice._hideTimer);
+    promoNotice._hideTimer = setTimeout(() => {
+      promoNotice.style.opacity = "0";
+      setTimeout(() => (promoNotice.style.display = "none"), 1000);
+    }, 3000);
+  } else {
+    // 没有活动折扣：隐藏提示条
+    promoNotice.style.display = "none";
+    promoNoticeText.textContent = "";
+  }
 
   const r = document.getElementById("resultBox");
   r.style.display = "block";
@@ -310,7 +400,9 @@ function calculatePremium(){
     Trigger Level: ${(trigger*100).toFixed(0)}%<br>
     Coverage Level (Trigger + 20%): ${(coverage*100).toFixed(0)}%<br>
     💰 Estimated Premium (per ha): <strong>RM ${premiumPerHa.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
-    💵 Total Premium for ${area} ha: <strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>
+    💵 Total Premium for ${area} ha: <strong${discountRate>0?' style="text-decoration:line-through;color:#999;"':''}>
+       RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
+    ${discountRate>0?`🎉 After ${(discountRate*100).toFixed(0)}% Discount (${activePromo.code}): <strong style="color:#D97706;">RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`:""}
   `;
 }
 </script>
