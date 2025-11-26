@@ -572,11 +572,11 @@ function togglePromoEdit(isEdit) {
   const edit = document.getElementById("promoEdit");
 
   if (isEdit) {
-    display.classList.add("hidden");
-    edit.classList.add("active");
+    display.style.display = "none";
+    edit.style.display = "block";
   } else {
-    display.classList.remove("hidden");
-    edit.classList.remove("active");
+    display.style.display = "flex";
+    edit.style.display = "none";
   }
 }
 
@@ -669,7 +669,7 @@ function calculatePremium(){
            <span class="new-price">→ RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
         : `<strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`}
     </div>
-    ${discountRate>0?`<div class="discount-note">🎟️ Promo <strong>${activePromo.code}</strong> applied (${(discountRate*100).toFixed(0)}% off)</div>`:""}
+    ${discountRate>0?`<div class="discount-note">Promo <strong>${activePromo.code}</strong> applied (${(discountRate*100).toFixed(0)}% off)</div>`:""}
   `;
 }
 </script>
