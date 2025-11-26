@@ -75,19 +75,19 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
 .promo-display {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;      /* 改成 baseline，让文字底线与按钮文字底线齐平 */
+  align-items: center; /* ✅ 改这里 — 垂直居中 */
   padding: 0.6rem 0.8rem 0.5rem;
   gap: 1rem;
 }
 
 .promo-text {
   display: flex;
-  align-items: baseline;      /* 对齐到文字基线 */
+  align-items: center;  /* ✅ 垂直居中 */
   gap: 8px;
   color: #4b3b08;
   font-weight: 600;
   font-size: 1.05rem;
-  line-height: 1.3;           /* 稍微放松行高，让字居中更自然 */
+  line-height: 1.4;     /* 让文字与按钮中线接近 */
   letter-spacing: 0.3px;
 }
 
@@ -95,7 +95,7 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   content: "🎟️";
   display: inline-block;
   font-size: 1.1rem;
-  transform: translateY(1.5px);   /* 精微下移 1.5px 让 emoji 与文字底线对齐 */
+  transform: translateY(0); /* ✅ 去掉微调，避免偏上 */
 }
 
 .promo-edit-btn {
@@ -104,13 +104,12 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   color: #d97706;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.5rem 1.4rem;
+  padding: 0.55rem 1.5rem;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  line-height: 1.1;           /* 与 .promo-text 底线更统一 */
-  margin-top: -1px;           /* 给按钮整体微调下移，视觉上居中 */
+  line-height: 1.2; /* ✅ 按钮行高略高一点点更视觉居中 */
 }
   
 /* 更整齐的编辑模式头部 */
