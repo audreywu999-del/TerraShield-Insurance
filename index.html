@@ -274,9 +274,9 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
 #overview p,
 #coverage-preview p {
   letter-spacing: 0.3px;       /* ✅ 增加一点字距，避免紧贴 */
-  word-spacing: 1.2px;           /* ✅ 单词间距微放宽（英文更自然） */
+  word-spacing: 1.3px;           /* ✅ 单词间距微放宽（英文更自然） */
   line-height: 1.8;            /* ✅ 多一点行高让段落更通透 */
-  font-size: 1.0rem;         
+  font-size: 1rem;         
 }
 
 /* ==== restore the original disclaimer text style (classic serif italic) ==== */
@@ -310,6 +310,13 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
 #coverage-preview p {
   margin-left: 0;
   margin-right: 0;
+}
+
+/* ✅ 让 View Full Coverage 按钮始终居中 */
+#coverage-preview .coverage-btn {
+  display: block;
+  margin: 1rem auto 0; /* 居中按钮 */
+  text-align: center;
 }
   
 </style>
