@@ -581,7 +581,7 @@ function calculatePremium(){
   r.innerHTML = `
     <strong>${crop}</strong> (${state})<br>
     Trigger Level: ${(trigger*100).toFixed(0)}%<br>
-    Coverage Level (Trigger + 20%): ${(coverage*100).toFixed(0)}%<br>
+    Coverage Level : ${(coverage*100).toFixed(0)}%<br>
      Estimated Premium (per ha): <strong>RM ${premiumPerHa.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
     <div class="premium-price-box" style="margin-top:0.4rem;">
      Total Premium for ${area} ha: 
@@ -592,6 +592,7 @@ function calculatePremium(){
     </div>
     ${discountRate>0?`<div class="discount-note">🎟️ Promo <strong>${activePromo.code}</strong> applied (${(discountRate*100).toFixed(0)}% off)</div>`:""}
   `;
+}
 </script>
 </body>
 </html>
