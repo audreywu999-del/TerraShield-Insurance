@@ -600,15 +600,16 @@ function calculatePremium(){
   
   if (discountRate > 0) {
     promoNoticeText.innerHTML =
-      `✔ Promo code <strong>${activePromo.code}</strong> applied — ${(discountRate*100).toFixed(0)}% off total premium.`;
+      `✔ Promo code <strong>${activePromo.code}</strong> applied — ${(discountRate * 100).toFixed(0)}% off total premium.`;
     promoNotice.style.display = "block";
     promoNotice.style.opacity = "1";
-    promoNotice.style.transition = "opacity 1s ease";
-  
+    promoNotice.style.transition = "none"; // 不淡出、不隐藏
+  } else {
     // 没有活动折扣：隐藏提示条
     promoNotice.style.display = "none";
     promoNoticeText.textContent = "";
   }
+
 
   const r = document.getElementById("resultBox");
   r.style.display = "block";
