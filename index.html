@@ -71,69 +71,76 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   transform: translateY(-2px);
 }
 
+/* Promo display layout tweak for perfect alignment */
 .promo-display {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0.3rem 0.2rem;
+  align-items: center;         /* ✅ 让文字与按钮垂直中心对齐 */
+  padding: 0.2rem 0.4rem;
+  gap: 1rem;
 }
 
 .promo-text {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: #4b3b08;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
 }
 
 .promo-text::before {
   content: "🎟️";
   display: inline-block;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  transform: translateY(2px);   /* ✅微调emoji垂直 */
 }
 
 .promo-edit-btn {
   background: #fff8e5;
-  border: 1.5px solid var(--dark-gold);
-  color: var(--dark-gold);
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.55rem 1.2rem;
-  border-radius: 8px;
+  border: 2px solid #d97706;
+  color: #d97706;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .promo-edit-btn:hover {
-  background: var(--dark-gold);
-  color: white;
+  background: #d97706;
+  color: #fff;
 }
 
-.promo-edit {
-  border-top: 1px solid #f1e1bd;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  animation: fadeInPromo 0.4s ease;
-}
-
+/* 更整齐的编辑模式头部 */
 .promo-edit-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;          /* ✅ 保证左右项同高 */
   font-weight: 600;
-  color: #8b6b2e;
-  margin-bottom: 0.8rem;
+  color: #4b3b08;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.3px;
 }
 
+.promo-edit-header span::before {
+  content: "🎟️";
+  margin-right: 8px;
+  font-size: 1.05rem;
+  transform: translateY(2px);
+}
 .promo-cancel {
   background: none;
   border: none;
   color: #d97706;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
+  
 .promo-input-row {
   display: flex;
   gap: 0.6rem;
