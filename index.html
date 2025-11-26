@@ -201,6 +201,34 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   opacity: 1;
   transform: translateY(0);
 }
+/* ==== Premium Result Discount Styling ==== */
+.premium-price-box {
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.premium-price-box .old-price {
+  text-decoration: line-through;
+  color: #9a9480;
+  opacity: 0.8;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.premium-price-box .new-price {
+  color: #d97706;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: color 0.3s ease;
+}
+
+.discount-note {
+  color: #166534;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
 </style>
 </head>
 
@@ -555,11 +583,15 @@ function calculatePremium(){
     Trigger Level: ${(trigger*100).toFixed(0)}%<br>
     Coverage Level (Trigger + 20%): ${(coverage*100).toFixed(0)}%<br>
     💰 Estimated Premium (per ha): <strong>RM ${premiumPerHa.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
-    💵 Total Premium for ${area} ha: <strong${discountRate>0?' style="text-decoration:line-through;color:#999;"':''}>
-       RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
-    ${discountRate>0?`🎉 After ${(discountRate*100).toFixed(0)}% Discount (${activePromo.code}): <strong style="color:#D97706;">RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`:""}
+    <div class="premium-price-box" style="margin-top:0.4rem;">
+      💵 Total Premium for ${area} ha: 
+      ${discountRate>0
+        ? `<span class="old-price">RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</span>
+           <span class="new-price">→ RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
+        : `<strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`}
+    </div>
+    ${discountRate>0?`<div class="discount-note">🎟️ Promo <strong>${activePromo.code}</strong> applied (${(discountRate*100).toFixed(0)}% off)</div>`:""}
   `;
-}
 </script>
 </body>
 </html>
