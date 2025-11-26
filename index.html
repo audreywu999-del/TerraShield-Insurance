@@ -355,6 +355,24 @@ footer {
   font-size: 0.9rem;
   font-weight: 500;
 }
+
+.arrow {
+  font-weight: 500;
+  color: #7a621f;
+  margin: 0 4px;
+}
+/* ===== Promo Discount Styling ===== */
+.old-price {
+  text-decoration: line-through;
+  color: #a16207;            /* 柔和棕金色 */
+  margin-right: 0.5rem;
+  opacity: 0.8;
+}
+
+.new-price {
+  color: #166534;            /* 绿色代表节省 */
+  font-weight: 700;
+}
 </style>
   
 </head>
@@ -726,7 +744,8 @@ function calculatePremium(){
      Total Premium for ${area} ha: 
       ${discountRate>0
         ? `<span class="old-price">RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</span>
-           <span class="new-price">→ RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
+           <span class="arrow">→</span>
+           <span class="new-price">RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
         : `<strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`}
     </div>
     ${discountRate>0?`<div class="discount-note">Promo <strong>${activePromo.code}</strong> applied (${(discountRate*100).toFixed(0)}% off)</div>`:""}
