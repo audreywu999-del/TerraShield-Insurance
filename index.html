@@ -203,11 +203,17 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
 }
 /* ==== Premium Result Discount Styling ==== */
 .premium-price-box {
-  font-weight: 600;
-  font-size: 1rem;
   display: flex;
+  justify-content: center;
   align-items: baseline;
   gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background: #fffaf0;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  margin: 0.4rem auto;
+  width: fit-content; /* ✅ 保证宽度刚好包住内容 */
 }
 
 .premium-price-box .old-price {
