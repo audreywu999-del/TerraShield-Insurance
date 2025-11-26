@@ -96,8 +96,14 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
       <input id="area" type="number" value="10" step="0.1" />
     </div>
     <div>
-      <label for="coverage">Coverage Level</label>
-      <select id="coverage"><option value="">Select crop/state first</option></select>
+      <label for="trigger">Trigger Level</label>
+      <select id="trigger" onchange="updateCoverageLevel()">
+        <option value="">Select crop/state first</option>
+      </select>
+    </div>
+    <div>
+      <label for="coverage">Coverage Level (= Trigger + 20%)</label>
+      <input id="coverage" type="text" readonly placeholder="Auto‑calculated" />
     </div>
   </div>
   <button onclick="calculatePremium()">Calculate</button>
@@ -259,17 +265,20 @@ function updateCoverageOptions(){
 function calculatePremium(){
   const crop=document.getElementById("crop").value;
   const state=document.getElementById("state").value;
+  const area = parseFloat(document.getElementById("area").value);
   const coverage=parseFloat(document.getElementById("coverage").value);
   if(!crop||!state||!coverage){alert("Please fill all fields.");return;}
   const gross=grossPremiumTable[crop]?.[state];
   if(!gross){alert("No Gross Premium data for this crop/state.");return;}
-  const premium=gross*coverage;
+  // ✅ Multiply gross × coverage × area
+  const premiumPerHa = gross * coverage;
+  const totalPremium = premiumPerHa * area
   const r=document.getElementById("resultBox");
   r.style.display="block";
   r.innerHTML=`
     <strong>${crop}</strong> (${state})<br>
-    Coverage Level: ${(coverage*100).toFixed(0)}%<br>
-    💰 Estimated Premium: <strong>RM ${premium.toLocaleString()}</strong>
+    💰 Estimated Premium (per ha): <strong>RM ${premiumPerHa.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
+    💵 Total Premium for ${area} ha: <strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>
   `;
 }
 </script>
