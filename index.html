@@ -265,8 +265,12 @@ button:hover {
   box-sizing: border-box;
   text-align: left;
 }
-
-/* ===== Disclaimer (恢复原始灰斜体) ===== */
+/* Force the disclaimer container to left-align */
+.disclaimer-bar {
+  text-align: left !important;   /* ✅ 父级强制左对齐 */
+}
+  
+/* ===== Disclaimer  ===== */
 .disclaimer-bar p {
   font-family: 'Poppins', sans-serif;
   font-style: italic;
