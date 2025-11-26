@@ -172,20 +172,16 @@ button:hover {
 }
 .promo-display {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between;   /* 左文字右按钮 */
+  align-items: baseline;            /* ✅ 对齐到文字的底线 */
   padding: 0.9rem 1.2rem;
-  gap: 1rem;
 }
+
 .promo-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   color: #4b3b08;
   font-weight: 600;
   font-size: 1.05rem;
-  line-height: 1.3;
-  letter-spacing: 0.3px;
+  line-height: 1.4;                 /* ✅ 确保文字有标准行高 */
 }
 
 .promo-edit-btn {
@@ -197,8 +193,10 @@ button:hover {
   padding: 0.55rem 1.4rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.25s ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  position: relative;
+  top: -1px;                        /* ✅ 微调，使按钮与文字中心完美对齐 */
+  transition: all 0.25s ease;
 }
 .promo-edit-btn:hover {
   background: var(--dark-gold);
