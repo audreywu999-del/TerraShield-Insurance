@@ -187,12 +187,7 @@ button:hover {
   line-height: 1.3;
   letter-spacing: 0.3px;
 }
-.promo-text::before {
-  content: "🎟️";
-  display: inline-block;
-  font-size: 1.15rem;
-  transform: translateY(2px);
-}
+
 .promo-edit-btn {
   background: #fff8e5;
   border: 2px solid #d97706;
@@ -378,7 +373,7 @@ footer {
   <!-- 展示模式 -->
   <div id="promoDisplay" class="promo-display">
     <div class="promo-text">
-      <span id="promoStatusText">No promo code applied.</span>
+      <span id="promoStatusText">No promotion code applied.</span>
     </div>
     <button class="promo-edit-btn" onclick="togglePromoEdit(true)">Edit Promo Code</button>
   </div>
@@ -386,7 +381,7 @@ footer {
   <!-- 编辑模式 -->
   <div id="promoEdit" class="promo-edit">
     <div class="promo-edit-header">
-      <span>🎟️ Enter your Promo Code</span>
+      <span>🎟️ Enter your Promotion Code</span>
       <button class="promo-cancel" onclick="togglePromoEdit(false)">Cancel</button>
     </div>
     <div class="promo-input-row">
