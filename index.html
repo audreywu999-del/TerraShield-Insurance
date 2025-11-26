@@ -71,52 +71,56 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   transform: translateY(-2px);
 }
 
-/* ✅ Promo 一行整体居中对齐修正版 */
+/* === Promo 一行真正视觉对齐 === */
 .promo-display {
   display: flex;
   justify-content: space-between;
-  align-items: center;       /* 垂直居中 */
-  padding: 0.75rem 1rem;     /* 调高包裹高度，看起来更居中 */
+  align-items: center;
+  padding: 0.9rem 1.2rem;        /* 稍高一点，让空间均衡 */
   gap: 1rem;
 }
 
-/* 左边文字部分：让文字和 emoji 在中线对齐 */
+/* ✅ 左边文字部分精确微调 */
 .promo-text {
-  display: flex;
-  align-items: center;      /* emoji + 文字 垂直对齐 */
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
   color: #4b3b08;
   font-weight: 600;
   font-size: 1.05rem;
-  line-height: 1.3;         /* 增加行高让上下留白更均匀 */
+  line-height: 1.3;
   letter-spacing: 0.3px;
+  position: relative;
+  top: 1px;                      /* ✅ 向下微调 1px 保证与按钮视觉齐平 */
 }
 
 .promo-text::before {
   content: "🎟️";
   display: inline-block;
-  font-size: 1.2rem;
-  transform: translateY(1px);  /* 👈 微调 1px，让 emoji 与文字底线齐平 */
+  font-size: 1.15rem;
+  transform: translateY(2px);    /* ✅ emoji 下移一点 */
 }
 
-/* 右侧按钮视觉居中微调 */
+/* ✅ 右侧按钮垂直居中 + 微调 */
 .promo-edit-btn {
   background: #fff8e5;
   border: 2px solid #d97706;
   color: #d97706;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.65rem 1.6rem;      /* 高度略调大一点居中看起来更稳 */
+  padding: 0.55rem 1.4rem;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   line-height: 1.2;
+  position: relative;
+  top: -1px;                     /* ✅ 向上微调 1px，与左边底线对齐 */
 }
 
 .promo-edit-btn:hover {
   background: var(--dark-gold);
-  color: white;
+  color: #fff;
 }
 /* 更整齐的编辑模式头部 */
 .promo-edit-header {
@@ -525,23 +529,41 @@ function togglePromoEdit(isEdit) {
 }
 
 
-function applyPromo(){
+function applyPromo() {
   const code = document.getElementById("promoInput").value.trim().toUpperCase();
   const message = document.getElementById("promoMessage");
   const displayText = document.getElementById("promoStatusText");
-  if(!code){
-    message.textContent = "Please enter a promo code."; message.style.color = "red"; return;
-  }
-  if(promoCodes[code]){
-    activePromo = { code, rate: promoCodes[code] };
-    message.textContent = ` Promo code ${code} applied (${(promoCodes[code]*100).toFixed(0)}% off)`;
-    message.style.color = "green";
-    displayText.textContent = `${(promoCodes[code]*100).toFixed(0)}% off first-year premium. Promo code ${code} applied.`;
-    togglePromoEdit(false);
-  }else{
-    message.textContent = " Invalid promo code.";
+
+  if (!code) {
+    message.textContent = "Please enter a promo code.";
     message.style.color = "red";
-    activePromo = { code:null, rate:0 };
+    return;
+  }
+
+  if (promoCodes[code]) {
+    activePromo = { code, rate: promoCodes[code] };
+    message.textContent = `Promo code ${code} applied (${(promoCodes[code] * 100).toFixed(0)}% off)`;
+    message.style.color = "green";
+    displayText.textContent = `${(promoCodes[code] * 100).toFixed(0)}% off first-year premium. Promo code ${code} applied.`;
+
+    togglePromoEdit(false);
+
+    // ✅ 成功后自动触发计算：
+    const crop = document.getElementById("crop").value;
+    const state = document.getElementById("state").value;
+    const area = parseFloat(document.getElementById("area").value);
+    const trigger = parseFloat(document.getElementById("trigger").value);
+    const coverage = parseFloat(document.getElementById("coverage").dataset.value);
+
+    // 先确认用户资料完整，防止空算
+    if (crop && state && !isNaN(trigger) && !isNaN(coverage) && !isNaN(area)) {
+      calculatePremium();  // ✅ 自动计算
+    }
+
+  } else {
+    message.textContent = "Invalid promo code.";
+    message.style.color = "red";
+    activePromo = { code: null, rate: 0 };
   }
 }
 /* === 核算保费 === */
