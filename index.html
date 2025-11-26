@@ -55,6 +55,118 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* ===== Beautiful Promo Card Styling ===== */
+.promo-card {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  background: #ffffff;
+  border: 1px solid #f1e1bd;
+  border-radius: 12px;
+  padding: 1.4rem 1.8rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.promo-card:hover {
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.promo-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.3rem 0.2rem;
+}
+
+.promo-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b3b08;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.promo-text::before {
+  content: "🎟️";
+  display: inline-block;
+  opacity: 0.9;
+}
+
+.promo-edit-btn {
+  background: #fff8e5;
+  border: 1.5px solid var(--dark-gold);
+  color: var(--dark-gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.promo-edit-btn:hover {
+  background: var(--dark-gold);
+  color: white;
+}
+
+.promo-edit {
+  border-top: 1px solid #f1e1bd;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  animation: fadeInPromo 0.4s ease;
+}
+
+.promo-edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #8b6b2e;
+  margin-bottom: 0.8rem;
+}
+
+.promo-cancel {
+  background: none;
+  border: none;
+  color: #d97706;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.promo-input-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.promo-input-row input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: #fffdf7;
+}
+.promo-apply {
+  background: var(--dark-gold);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.promo-apply:hover {
+  background: var(--gold);
+}
+.promo-message {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #8b6b2e;
+}
 </style>
 </head>
 
@@ -127,33 +239,27 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   </div>
 
 </section>
-<!-- ✅ FWD‑style Promo Section -->
-<div id="promoContainer" 
-     style="border:1px solid #F3D9A6;
-            border-radius:8px;
-            padding:1.2rem;
-            background:#FFF7E8;
-            margin-top:2rem;
-            box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+<!-- Promo Section -->
+<div id="promoContainer" class="promo-card">
   <!-- 展示模式 -->
-  <div id="promoDisplay" style="display:flex;justify-content:space-between;align-items:center;">
-    <div>
-      <span style="font-weight:600;">No promo code applied.</span>
+  <div id="promoDisplay" class="promo-display">
+    <div class="promo-text">
+      <span id="promoStatusText">No promo code applied.</span>
     </div>
-    <button onclick="togglePromoEdit(true)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Edit</button>
+    <button class="promo-edit-btn" onclick="togglePromoEdit(true)">Edit Promo Code</button>
   </div>
 
   <!-- 编辑模式 -->
-  <div id="promoEdit" style="display:none;">
-    <div style="font-weight:600;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-      <span>🎟️ Edit promo code</span>
-      <button onclick="togglePromoEdit(false)" style="background:none;border:none;color:#D97706;font-weight:600;cursor:pointer;">Cancel</button>
+  <div id="promoEdit" class="promo-edit" style="display:none;">
+    <div class="promo-edit-header">
+      <span>🎟️ Enter your Promo Code</span>
+      <button class="promo-cancel" onclick="togglePromoEdit(false)">Cancel</button>
     </div>
-    <div style="display:flex;gap:0.5rem;">
-      <input id="promoInput" placeholder="e.g. TerraShield" style="flex:1;padding:0.7rem 1rem;border-radius:6px;border:1px solid #ccc;text-transform:uppercase;font-weight:600;" />
-      <button onclick="applyPromo()" style="background:#D97706;color:#fff;border:none;border-radius:6px;padding:0.7rem 1.5rem;cursor:pointer;font-weight:600;">Apply</button>
+    <div class="promo-input-row">
+      <input id="promoInput" placeholder="e.g. WELCOME" />
+      <button class="promo-apply" onclick="applyPromo()">Apply</button>
     </div>
-    <div id="promoMessage" style="margin-top:0.4rem;font-size:0.85rem;color:#8b6b2e;"></div>
+    <div id="promoMessage" class="promo-message"></div>
   </div>
 </div>
   
@@ -340,7 +446,7 @@ function togglePromoEdit(isEdit){
 function applyPromo(){
   const code = document.getElementById("promoInput").value.trim().toUpperCase();
   const message = document.getElementById("promoMessage");
-  const displayText = document.querySelector("#promoDisplay span");
+  const displayText = document.getElementById("promoStatusText");
   if(!code){
     message.textContent = "Please enter a promo code."; message.style.color = "red"; return;
   }
