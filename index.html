@@ -328,6 +328,42 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   margin: 1rem auto 0;
   text-align: center;
 }
+/* === 修复 About & Coverage 对齐问题 === */
+
+/* 保持整块卡片居中，但文字左对齐 */
+#overview,
+#coverage-preview {
+  max-width: 700px;       /* 依然限制宽度，防止超宽 */
+  margin: 0 auto 3rem;    /* 居中卡片 */
+  text-align: left;       /* 文字左对齐（重点） */
+  padding: 2rem 3rem;     /* 给左右一点呼吸空间 */
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+/* 保留标题居中 */
+#overview h3,
+#coverage-preview h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* 修正文段排版 */
+#overview p,
+#coverage-preview p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.2px;
+  word-spacing: 0.5px;
+}
+
+/* ✅ 按钮保持自然宽度，居中显示 */
+#coverage-preview .coverage-btn {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
   
 </style>
 </head>
