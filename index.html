@@ -261,11 +261,6 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   margin-bottom: 1.2rem;       /* 段落间留白 */
 }
 
-/* ✅ 提高容器上下留白，避免区块贴太紧 */
-.container {
-  padding: 2.5rem 2rem;        /* 增加内边距（上下更宽） */
-  margin: 3rem auto 3.5rem;    /* 区块外部间距 */
-}
 
 /* ✅ 限制说明区段文字宽度、加强可读性 */
 .coverage-preview p,
@@ -273,6 +268,15 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   max-width: 700px;            /* 合适阅读宽度 */
   margin: 0 auto 1.6rem;       /* 居中 + 下方留白 */
   line-height: 1.75;           /* 行距再放松 */
+}
+
+/* ==== 调整段落字距与行高，阅读更舒适 ==== */
+#overview p,
+#coverage-preview p {
+  letter-spacing: 0.3px;       /* ✅ 增加一点字距，避免紧贴 */
+  word-spacing: 1px;           /* ✅ 单词间距微放宽（英文更自然） */
+  line-height: 1.8;            /* ✅ 多一点行高让段落更通透 */
+  font-size: 1.02rem;          /* 文字略放大 2% 看起来更平衡 */
 }
 
 /* ==== 让 disclaimer 段落恢复原始小字样式 ==== */
@@ -285,6 +289,8 @@ footer{text-align:center;background:var(--dark-gold);color:white;padding:1.2rem;
   margin-bottom: 0;                   /* 不要多余空隙 */
   text-align: center;                 /* 居中可选 */
 }
+
+
 
 </style>
 </head>
