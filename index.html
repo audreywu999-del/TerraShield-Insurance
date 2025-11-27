@@ -489,10 +489,13 @@ footer {
       <label for="coverage">Coverage Level</label>
       <input id="coverage" type="text" readonly placeholder="Auto‑calculated" />   
     </div>
-    <p style="font-size:0.9rem;color:#8b6b2e;margin-top:0.3rem;">
-    💡 Coverage is always <strong>20% higher</strong> than the trigger level. 
-    This means once your loss reaches the trigger point, TerraShield will cover up to 20% more to protect you better.
-    </p> 
+    <p style="font-size:0.9rem;color:#8b6b2e;margin-top:0.5rem;display:flex;align-items:center;gap:8px;">
+      <span style="font-size:1.1rem;">💡</span>
+      <span>
+        Coverage is always <strong>20% higher</strong> than the trigger level — 
+        this means once your loss reaches the trigger point, TerraShield will cover up to 20% more to protect you better.
+      </span>
+    </p>
   </div>
   <button onclick="calculatePremium()">Calculate</button>
   <div id="promoNotice" class="promo-banner">
