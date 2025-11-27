@@ -102,6 +102,7 @@ nav a.active::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
+
 /* ===== Containers ===== */
 .container {
   max-width: 900px;
@@ -202,7 +203,17 @@ button:hover {
   background: var(--dark-gold);
   color: #fff;
 }
-
+.promo-banner {
+  display: none;
+  background: #ebf7ee;               /* 柔和绿底 */
+  border-left: 5px solid #16a34a;    /* 深绿线 */
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-top: 1.2rem;
+  color: #166534;
+  font-weight: 500;
+  animation: fadeInPromo 0.5s ease;
+}
 /* ===== Coverage / Overview Section ===== */
 #overview,
 #coverage-preview {
@@ -453,10 +464,7 @@ footer {
     </div>
   </div>
   <button onclick="calculatePremium()">Calculate</button>
-  <div id="promoNotice" style="display:none;background:#e8f9ee;border-left:5px solid #16a34a;
-    border-radius:6px;padding:0.75rem 1rem;margin-top:1.2rem;
-    color:#166534;font-weight:500;animation:fadeInPromo 0.5s ease;">
-    <span style="margin-right:6px;"></span>
+  <div id="promoNotice" class="promo-banner">
     <span id="promoNoticeText"></span>
   </div>
   <div id="resultBox"></div>
