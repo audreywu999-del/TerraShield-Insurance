@@ -406,17 +406,32 @@ footer {
   transform: scale(1.03);
 }
 
-.discount-note {
+/* ===== Promo 说明行（淡入动效） ===== */
+#resultBox .discount-note {
   margin-top: 0.6rem;
   font-size: 0.9rem;
-  color: #166534;        /* 同 promo banner 深绿 */
+  color: #166534 !important;   /* 深绿色 */
   font-weight: 500;
-  opacity: 0.9;
-  transition: color 0.3s ease;
+  opacity: 0;                   /* 起始透明 */
+  transform: translateY(6px);   /* 起始微下移 */
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-.discount-note:hover {
-  color: #0f5132;         /* Hover 时稍深一点绿色 */
+/* Hover 轻色变化 */
+#resultBox .discount-note:hover {
+  color: #0f5132 !important;
+}
+
+/* 动画关键帧 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
   
