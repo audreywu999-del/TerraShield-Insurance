@@ -793,6 +793,11 @@ function updateCoverageOptions(){
       o.textContent = i + "%";
       triggerSelect.appendChild(o);
     }
+
+    // 🟢 自动选择第一个选项并触发 coverage 计算
+    triggerSelect.selectedIndex = 0;
+    updateCoverageLevel();
+
   } else {
     const o=document.createElement("option");
     o.textContent="Select crop and state first";
