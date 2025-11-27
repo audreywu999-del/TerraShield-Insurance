@@ -371,6 +371,30 @@ footer {
   color: #166534;            /* 绿色代表节省 */
   font-weight: 700;
 }
+/* ===== Highlight Total Premium Line ===== */
+.highlight-total {
+  background-color: #fff8e1;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  margin-top: 0.8rem;
+  display: inline-block;
+  font-weight: 700;
+  color: #b45309;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#resultBox .highlight-total {
+  display: block;
+  width: fit-content;
+  margin: 0.8rem auto;
+}
+.highlight-total:hover {
+  background-color: #ffefc6;
+  transform: scale(1.03);
+}
+
 </style>
   
 </head>
@@ -867,13 +891,15 @@ function calculatePremium(){
     Trigger Level: ${triggerPct}%<br>
     Coverage Level: ${(coverage*100).toFixed(0)}%<br>
     Gross Premium (per ha): <strong>RM ${gross.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
-    <div class="premium-price-box" style="margin-top:0.4rem;">
-      Total Premium for ${area} ha: 
-      ${discountRate>0
-        ? `<span class="old-price">RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</span>
-           <span class="arrow">→</span>
-           <span class="new-price">RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
-        : `<strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`}
+    <div class="highlight-total">
+      Total Premium for ${area} ha:&nbsp;
+      ${
+        discountRate > 0
+          ? `<span class="old-price">RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</span>
+             <span class="arrow">→</span>
+             <span class="new-price">RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
+          : `<strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`
+      }
     </div>
     ${discountRate>0?`<div class="discount-note">Promo <strong>${activePromo.code}</strong> applied (${(discountRate*100).toFixed(0)}% off)</div>`:""}
   `;
