@@ -873,8 +873,10 @@ function calculatePremium(){
     return;
   }
 
-  // ✅ 新格式：按 trigger level 查找
-  const triggerPct = Math.round(trigger * 100).toString();
+  // ✅ 修正：用 Coverage Level 去查表，不是 Trigger Level
+  const coveragePct = Math.round(coverage * 100).toString();
+  const triggerPct = Math.round(trigger * 100);  // 用于显示
+  
   const grossData = grossPremiumTable[crop]?.[state];
   
   if(!grossData){
@@ -882,10 +884,10 @@ function calculatePremium(){
     return;
   }
   
-  const gross = grossData[triggerPct];
+  const gross = grossData[coveragePct];  // ✅ 用 coveragePct 查表
   
   if(gross === undefined){
-    alert(`No premium data for ${crop} in ${state} at ${triggerPct}% trigger level.`);
+    alert(`No premium data for ${crop} in ${state} at ${coveragePct}% coverage level.`);
     return;
   }
 
@@ -911,16 +913,16 @@ function calculatePremium(){
     <strong>TOTAL PREMIUM CALCULATOR</strong><br>
     <strong>${crop}</strong> (${state})<br>
     Trigger Level: ${triggerPct}%<br>
-    Coverage Level: ${(coverage*100).toFixed(0)}%<br>
+    Coverage Level: ${coveragePct}%<br>
     Gross Premium (per ha): <strong>RM ${gross.toLocaleString(undefined,{maximumFractionDigits:2})}</strong><br>
     <div class="highlight-total">
-      Total Premium for ${area} ha:&nbsp;
+      Total Premium for ${area} ha:&nbsp;
       ${
         discountRate > 0
-          ? `<span class="old-price">RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</span>
+          ? `<span class="old-price">RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</span>
              <span class="arrow">→</span>
-             <span class="new-price">RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
-          : `<strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`
+             <span class="new-price">RM ${discountedTotal.toLocaleString(undefined,{maximumFractionDigits:2})}</span>`
+          : `<strong>RM ${totalPremium.toLocaleString(undefined,{maximumFractionDigits:2})}</strong>`
       }
     </div>
     ${discountRate>0?`<div class="discount-note">Promo <strong>${activePromo.code}</strong> applied (${(discountRate*100).toFixed(0)}% off)</div>`:""}
